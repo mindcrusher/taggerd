@@ -19,32 +19,61 @@ AppAsset::register($this);
 <body>
 
 <?php $this->beginBody() ?>
+<div class="header-bg header-block">
     <div class="container">
+        <div class="header-logo"></div>
         <div class="row">
-            <?php
-            echo Nav::widget([
-                'items' => [
-                    ['label' => 'Обратная связь', 'url' => ['/site/contact'], 'linkOptions' => [
-                        'class' =>  'showModalButton',
-                        'data-target' => '#pending-form',
-                        'data-toggle' => 'modal',
-                        'title' => 'Обратная связь',
-                    ]],
-                    ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
-                        'class' =>  'showModalButton',
-                        'data-target' => '#pending-form',
-                        'data-toggle' => 'modal',
-                        'title' => 'Заявка онлайн',
-                    ]],
-                    ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
-                ],
-                'options' => [
-                    'class' => 'navbar-nav navbar-right hidden-xs'
-                ],
-            ]);
-            ?>
+            <div class="col-sm-4">
+                контакты
+            </div>
+            <div class="col-sm-8">
+                <?php
+                echo Nav::widget([
+                    'items' => [
+                        ['label' => 'Обратная связь', 'url' => ['/site/contact'], 'linkOptions' => [
+                            'class' =>  'showModalButton',
+                            'data-target' => '#pending-form',
+                            'data-toggle' => 'modal',
+                            'title' => 'Обратная связь',
+                        ]],
+                        ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
+                            'class' =>  'showModalButton',
+                            'data-target' => '#pending-form',
+                            'data-toggle' => 'modal',
+                            'title' => 'Заявка онлайн',
+                        ]],
+                        ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
+                    ],
+                    'options' => [
+                        'class' => 'navbar-nav navbar-right navbar-short-menu hidden-xs text-yellow '
+                    ],
+                ]);
+                ?>
+            </div>
         </div>
         <div class="row">
+            <div class="col-sm-12">
+                <?php
+                echo Nav::widget([
+                    'items' => [
+                        ['label' => 'О компании', 'url' => ['/site/contact']],
+                        ['label' => 'Услуги', 'url' => ['/site/contact']],
+                        ['label' => 'Цены', 'url' => ['/site/contact']],
+                        ['label' => 'Новости и статьи', 'url' => ['/site/contact']],
+                        ['label' => 'Партнерам', 'url' => ['/site/contact']],
+                        ['label' => 'Контакты', 'url' => ['/site/contact']],
+                    ],
+                    'options' => [
+                        'class' => 'navbar-nav navbar-right navbar-horizontal-menu hidden-xs text-white'
+                    ],
+                ]);
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
             <?php
             $hasMenu = !empty(Yii::$app->controller->menu[4]);
             if($hasMenu) {
@@ -104,9 +133,6 @@ AppAsset::register($this);
             <div class="col-sm-4">somtehting else</div>
         </div>
     </div>
-
-
-
 <?php $this->endBody() ?>
 <?php
 yii\bootstrap\Modal::begin([
