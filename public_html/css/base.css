@@ -1,4 +1,12 @@
 @import "../fonts/intro.css";
+
+
+@media screen and (min-width:600px) {
+    body {
+        min-width: 980px;
+    }
+}
+
 .container {
     position: relative;
 }
@@ -52,9 +60,7 @@ a {
 }
 
 @media screen and (min-width:768px) {
-    body {
-        min-width: 1002px;
-    }
+
     .header-contact-block__phone {
         text-align: center;
     }
