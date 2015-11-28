@@ -1,0 +1,117 @@
+@import "../fonts/intro.css";
+.container {
+    position: relative;
+}
+
+body {
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Intro";
+}
+
+a {
+    outline: none;
+}
+
+.icon {
+    background: url("../img/sprite.png");
+    background-repeat: no-repeat;
+}
+
+.icon-phone-large {
+    background-position: -96px 6px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+@media screen and (min-width:768px) {
+
+    .header-contact-block__phone {
+        font-size: 24px;
+        margin-top: 30px;
+    }
+
+    .header-bg {
+        background: url("../img/header-background.png") repeat-x;
+        z-index: 2;
+    }
+
+    .navbar-short-menu {
+        height: 123px;
+    }
+
+    .nav > li > a:hover, .nav > li > a:focus {
+        background: none;
+        border: none;
+    }
+
+    .navbar-short-menu > li > a {
+        padding: 50px 25px;
+        padding-bottom: 53px;
+    }
+    .navbar-short-menu > li > a {
+        font-size: 15px;
+
+    }
+
+    .navbar-horizontal-menu > li > a {
+        padding: 25px 5px;
+        font-size: 16px;
+    }
+
+    .navbar-nav > li > a:hover {
+        background: #8b99a9;
+
+    }
+
+    .header-logo {
+        background: url("../img/taggerd-logo.png");
+        height: 217px;
+        width: 169px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .header-block {
+        height: 249px;
+        position: relative;
+    }
+
+    .text-yellow, .text-yellow a, .text-yellow a:hover, .text-yellow a:focus {
+        color: #e6e065;
+    }
+
+    .text-white, .text-white a, .text-white a:hover, .text-white a:focus {
+        color: #ffffff;
+    }
+}
+
+@media screen and (min-width:820px) {
+    .navbar-horizontal-menu > li > a {
+        padding: 25px 13px;
+    }
+}
+
+@media screen and (min-width:820px) {
+    .navbar-horizontal-menu > li > a {
+        padding: 25px 15px;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .navbar-horizontal-menu > li > a {
+        padding: 25px 20px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .navbar-short-menu > li {
+        padding: 0px 10px;
+        padding-top: 50px;
+    }
+}

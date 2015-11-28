@@ -19,7 +19,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/taggerd.css',
-        'css/full.css'
+        'css/base.css',
+        'https://fonts.googleapis.com/css?family=PT+Sans+Caption'
     ];
     public $js = [
         'js/app.js'

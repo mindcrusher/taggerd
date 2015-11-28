@@ -11,7 +11,7 @@ $form = ActiveForm::begin([
     ]
 );
 ?>
-<div class="col-sm-12">
+<div class="container">
     <h1 style="font-weight:bold"><?=$settings->calc_header?></h1>    
         <div class="row">
         

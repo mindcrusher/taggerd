@@ -21,12 +21,18 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <div class="header-bg header-block">
     <div class="container">
-        <div class="header-logo"></div>
+        <a href="/" class="header-logo"></a>
         <div class="row">
-            <div class="col-sm-4">
-                контакты
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4 text-white">
+                <div class="header-contact-block">
+                    <div class="header-contact-block__phone">
+                        <span class="icon icon-phone-large"></span>
+                        +7(495)78-262-87
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-6">
                 <?php
                 echo Nav::widget([
                     'items' => [
@@ -54,6 +60,14 @@ AppAsset::register($this);
         <div class="row">
             <div class="col-sm-12">
                 <?php
+                // $hasMenu = !empty(Yii::$app->controller->menu[4]);
+                // if($hasMenu) {
+                ?>
+                <?php
+                $menu = Yii::$app->controller->menu[2];
+                $menu['options'] = [
+                    'class' => 'navbar-nav navbar-right navbar-horizontal-menu hidden-xs text-white'
+                ];
                 echo Nav::widget([
                     'items' => [
                         ['label' => 'О компании', 'url' => ['/site/contact']],
@@ -65,73 +79,30 @@ AppAsset::register($this);
                     ],
                     'options' => [
                         'class' => 'navbar-nav navbar-right navbar-horizontal-menu hidden-xs text-white'
-                    ],
+                    ]
                 ]);
                 ?>
             </div>
         </div>
     </div>
 </div>
+<?=$content?>
 <div class="container">
-    <div class="row">
+    <div class="row footer">
+        <div class="col-sm-4">
+            <?php foreach(app\models\Contacts::findAllActive() as $contact) { ?>
+                <div><span class="<?=$contact->icon()?>" aria-hidden="true"></span> &nbsp;<?=$contact->formatted();?></div>
+            <? } ?>
+        </div>
+        <div class="col-sm-4 hidden-xs">
             <?php
-            $hasMenu = !empty(Yii::$app->controller->menu[4]);
-            if($hasMenu) {
+            if(!empty(Yii::$app->controller->menu)) {
+                echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+            }
             ?>
-            <div id="menu" class="col-sm-3">
-                <div class="row">
-                    <div class="header visible-xs">
-                        <div class="col-xs-6">
-                            <button type="button">Меню</button>
-                        </div>
-                        <div class="col-xs-6 text-right">
-                            <a href="/">Taggerd Logo</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="collapsible-area">
-                    <div class="menu-group">
-                        <?php
-                        echo Menu::widget(Yii::$app->controller->menu[4]['links']);
-                        ?>
-                    </div>
-                    <div class="visible-xs menu-group last">
-                        <?php
-                        echo Menu::widget([
-                            'items' => [
-                                ['label' => 'Обратная связь', 'url' => ['/site/contact']],
-                                ['label' => 'Онлайн заявка', 'url' => ['/site/pending']],
-                                ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
-                            ],
-                        ]);
-                        ?>
-                    </div>
-
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
-            <div class="col-xs-12 col-sm-<?=$hasMenu ? 9 : 12?>">
-                <?=$content?>
-            </div>
         </div>
-        <div class="row footer">
-            <div class="col-sm-4">
-                <?php foreach(app\models\Contacts::findAllActive() as $contact) { ?>
-                    <div><span class="<?=$contact->icon()?>" aria-hidden="true"></span> &nbsp;<?=$contact->formatted();?></div>
-                <? } ?>
-            </div>
-            <div class="col-sm-4 hidden-xs">
-                <?php
-                if(!empty(Yii::$app->controller->menu)) {
-                    echo Menu::widget(Yii::$app->controller->menu[5]['links']);
-                }
-                ?>
-            </div>
-            <div class="col-sm-4">somtehting else</div>
-        </div>
+        <div class="col-sm-4">somtehting else</div>
+    </div>
     </div>
 <?php $this->endBody() ?>
 <?php

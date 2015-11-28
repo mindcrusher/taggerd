@@ -66,11 +66,18 @@ class Banners extends \yii\db\ActiveRecord
     {
         $content = null;
         $caption = $this->title;
+        $html = $this->html;
+
         if(!empty($this->photo_id)) {
             $content = html::a(Html::img($this->file->getUrl()), $this->url);
-        } else {
-            $content = $this->html;
         }
+
+        if($this->url) {
+            $html.= Html::a('', $this->url, ['class' => 'pull-right']);
+        }
+
+        $content.= Html::tag('div', $html, ['class' => 'html']);
+
 
         return [
             'content' => $content,

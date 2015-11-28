@@ -1,0 +1,111 @@
+.main-page__container {
+    margin-top: 570px;
+}
+
+.main-page__carousel {
+    height: 700px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.main-page__carousel h1 {
+    background: #ffffff;
+    color: #b10000;
+    padding: 25px 25px 17px 25px;
+    margin: 0 0 45px 0 ;
+    display: inline-block;
+    font-size: 23px;
+}
+
+.main-page__carousel ul {
+    margin-left: -25px;
+    list-style: none;
+}
+
+.main-page__carousel ul li:before {
+    background:url('../img/sprite.png') no-repeat -49px -37px;
+    width:25px;
+    height:25px;
+    display:block;
+    content: " ";
+    top:0px;
+    left:-15px;
+    position: absolute;
+}
+
+.main-page__carousel ul li {
+    padding-left: 12px;
+    padding-bottom: 12px;
+    margin: 0;
+    position: relative;
+}
+.main-page__carousel .html {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 275px;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 21px;
+}
+
+.main-page__carousel .item {
+    position: relative;
+    height: 700px;
+}
+
+.main-page__carousel img {
+    width: 100%;
+}
+.main-page__carousel a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.main-page__carousel .html a {
+    position: relative;
+    z-index: 1000000;
+    background: #003147;
+    background: url("../img/sprite.png") no-repeat 0 -75px;
+    width: 183px;
+    height: 47px;
+}
+
+.main-page__principles-block {
+    background: url("../img/principles-block-bg.jpg");
+}
+
+.main-page__digits {
+    background: url("../img/digits-block-bg.png");
+}
+
+.main-page__block {
+    padding: 60px;
+}
+
+.main-page__button {
+    text-transform: uppercase;
+    padding: 14px 0;
+    padding-bottom: 24px;
+    background: url("../img/sprite.png") 0px -125px no-repeat;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    width: 423px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: 'Intro';
+}
+
+a.main-page__button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}

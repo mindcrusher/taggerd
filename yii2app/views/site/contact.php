@@ -10,7 +10,7 @@ use yii\captcha\Captcha;
 $this->title = 'ОБРАТНАЯ СВЯЗЬ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-contact">
+<div class="<?=Yii::$app->request->isAjax ? '' : 'container'?>">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
