@@ -1,9 +1,16 @@
 .main-page__container {
-    margin-top: 570px;
+    margin-top: 470px;
+}
+
+.main-page__digits .h1{
+    font-size: 70px;
+    border-bottom: 4px solid #254a73;
+    display: inline-block;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 .main-page__carousel {
-    height: 700px;
     width: 100%;
     position: absolute;
     top: 0;
@@ -12,13 +19,55 @@
     overflow: hidden;
 }
 
+.carousel-indicators {
+    display: none;
+}
+
+.carousel-indicators.main-page__carousel-carousel-indicators {
+    display: block;
+}
+
+.main-page__carousel-carousel-indicators {
+    bottom: -10px;
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+    z-index: 15;
+    padding-left: 0;
+    text-align: center;
+    list-style: none;
+    background: #0f0f0f;
+    border-right: #15202c 1px solid;
+    border-left: #15202c 1px solid;
+}
+
+.carousel-indicators.main-page__carousel-carousel-indicators li:before {
+    background: none;
+    content: '';
+}
+.carousel-indicators.main-page__carousel-carousel-indicators li {
+    text-indent: 0;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+    width: 300px;
+    height: auto;
+    border: none;
+    border-radius: 0px;
+    color: #ffffff;
+    background: #254a73;
+}
+.carousel-indicators.main-page__carousel-carousel-indicators li.active {
+    background: #b10000;
+}
+
 .main-page__carousel h1 {
     background: #ffffff;
     color: #b10000;
-    padding: 25px 25px 17px 25px;
-    margin: 0 0 45px 0 ;
+    padding: 13px 13px 10px 13px;
+    margin: 0 0 43px 0;
     display: inline-block;
-    font-size: 23px;
+    font-size: 18px;
 }
 
 .main-page__carousel ul {
@@ -50,17 +99,14 @@
     position: relative;
     z-index: 1;
     color: #fff;
-    font-size: 21px;
+    font-size: 16px;
 }
 
 .main-page__carousel .item {
     position: relative;
-    height: 700px;
+    height: 697px;
 }
 
-.main-page__carousel img {
-    width: 100%;
-}
 .main-page__carousel a {
     position: absolute;
     top: 0;
@@ -69,21 +115,149 @@
     right: 0;
 }
 
-.main-page__carousel .html a {
-    position: relative;
+.main-page__carousel .html a.carousel-read-more {
     z-index: 1000000;
     background: #003147;
     background: url("../img/sprite.png") no-repeat 0 -75px;
     width: 183px;
     height: 47px;
+    float: right;
+    position: relative;
+}
+
+.main-page__block .principles {
+    font-size: 16px;
+    padding: 40px 0;
+    font-family: "PT Sans Caption";
 }
 
 .main-page__principles-block {
-    background: url("../img/principles-block-bg.jpg");
+    background: url("../img/principles-block-bg.png");
+}
+.main-page__principles-block .main-page__block .row {
+    padding-top: 60px;
+}
+
+.main-page__principles-block .teaser{
+    padding: 0px;
+}
+
+.main-page__principles-block .teaser-caption {
+    font-size: 18px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.main-page__principles-block .teaser-image {
+    background: url("../img/principles-sprite.png") no-repeat;
+    height: 185px;
+    width: 185px;
+    margin: 0 auto;
+}
+
+.main-page__principles-block .teaser-image.teaser-image-confident{
+    background-position: -8px -252px;
+}
+
+.main-page__principles-block .teaser-image.teaser-image-complex {
+    background-position: -6px -0px;
+    width: 379px;
+    height: 246px;
+    margin-top: -37px;
+}
+
+.main-page__principles-block .teaser-image.teaser-image-license {
+    background-position: -196px -252px;
+}
+
+.main-page__principles-block .teaser-image.teaser-image-inidividual {
+    background-position: -9px -439px;
+}
+
+.main-page__principles-block .teaser-image.teaser-image-legal {
+    background-position: -199px -440px;
+}
+
+.main-page__principles-block .teaser-image.teaser-image-flexible {
+    background-position: -7px -628px;
+}
+
+.main-page__block-safety .teaser-caption-header {
+    font-size: 19px;
+}
+
+.main-page__block-safety-content {
+    padding: 60px 0;
+}
+.main-page__block.main-page__block-safety.text-center {
+    padding: 60px 0 0 0;
+}
+.main-page__block-safety .teaser {
+    padding-bottom: 60px;
+}
+
+.main-page__block-safety .teaser-image {
+    background: url("../img/safety-sprite.jpg") no-repeat;
+    height: 185px;
+    width: 160px;
+    margin: 0 auto;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-living {
+    background-position: -161px 0px;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-auto {
+    background-position: -322px 0px;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-party {
+    background-position: -0px -186px;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-vacation {
+    background-position: -162px -187px;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-offices {
+    background-position: -322px -187px;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-store {
+    background-position: 0px -373px;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-medical {
+    background-position: -162px -373px;
+}
+
+.main-page__block-safety .teaser-image.teaser-image-buildings {
+    background-position: -322px -373px;
+}
+
+.main-page__reviews .main-page__block .quote {
+    padding-top: 50px;
+    font-style: italic;
+    font-size: 24px;
+    color: #000;
+    font-family: "Times";
+}
+
+.main-page__reviews .main-page__block .subquote {
+    font-size: 17px;
+    font-style: normal;
+    font-family: "PT Sans Caption";
 }
 
 .main-page__digits {
-    background: url("../img/digits-block-bg.png");
+    background: url("../img/metall.jpg");
+}
+.main-page__digits p {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.main-page__reviews {
+    background: url("../img/reviews-block-bg.png");
 }
 
 .main-page__block {
@@ -108,4 +282,50 @@ a.main-page__button {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
+}
+.main-page__carousel .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: auto;
+    max-width: none;
+    height: 100%;
+}
+
+@media screen and (max-width:767px) {
+    .main-page__carousel .html {
+        padding-top: 10px;
+        width: 90%;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .main-page__carousel .html {
+        width: 90%;
+    }
+}
+
+
+@media screen and (min-width:1000px) {
+    .main-page__carousel .html {
+        width: 80%;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:1343px) {
+    .main-page__carousel img {
+        width: 100%;
+    }
+
+    .main-page__carousel .html {
+        font-size: 21px;
+        width: 60%;
+    }
+
+    .main-page__carousel h1 {
+        background: #ffffff;
+        color: #b10000;
+        padding: 25px 25px 17px 25px;
+        margin: 0 0 45px 0 ;
+        display: inline-block;
+        font-size: 23px;
+    }
 }

@@ -1,27 +1,71 @@
 <?php
+use yii\bootstrap\Carousel;
+use \yii\helpers\Html;
+
 $this->registerCssFile("/css/main-page.css", [
     'depends' => [\app\assets\AppAsset::className()],
 ], 'main-page');
-
+$beginYear = 1993;
 $banners = \app\models\Banners::findActive();
 $items = [];
-foreach( $banners as $banner) {
+$indicators = [];
+foreach( $banners as &$banner) {
     $items[] = $banner->getContent();
+    $indicators[] = $banner->title;
 }
+
+$reviewsData = [
+    [
+        'image' => '/img/reviews-sprite.png',
+        'name' => 'Василий Пупкин',
+        'company' => 'Мирамакс',
+        'text' => 'Работаем с этой конторой несколько лет. Куратор нашего объекта-вменяемый руководитель. Всегда можно решить все вопросы.<br/>И по деньгам нормально . Работой их остаемся весьма и весьма довольны'
+    ],
+];
+$reviews = [];
+foreach ($reviewsData as $review) {
+    $html = Html::beginTag('div', ['class' => 'col-sm-3']);
+    $html.= Html::img($review['image']);
+    $html.= Html::endTag('div');
+    $html.= Html::beginTag('div', ['class' => 'col-sm-9 text-left quote']);
+    $html.= '&quot;' . $review['text'] . '&quot;';
+    $html.= Html::beginTag('div', ['class' => 'text-right text-blue subquote']);
+    $html.= $review['name'] . ', компания &laquo;'.$review['company'].'&raquo;';
+    $html.= Html::endTag('div');
+    $html.= Html::endTag('div');
+
+    $reviews[] = $html;
+}
+
 ?>
-<div class="main-page__carousel">
+<div class="main-page__carousel hidden-xs hidden-sm">
     <?php
-    echo yii\bootstrap\Carousel::widget([
+    echo Carousel::widget([
         'items' => $items,
+        'id' => 'main-page__carousel'
     ]);
     ?>
+    <ol class="carousel-indicators main-page__carousel-carousel-indicators">
+        <?php
+        foreach( $indicators as $i => &$indicator) {
+            echo \yii\bootstrap\Html::tag(
+                'li',
+                $indicator,
+                [
+                    'class' => ($i === 0 ? "active" : ""),
+                    'onclick' => "$('#main-page__carousel').carousel($i);$('ol li').removeClass('active');$(this).addClass('active');"
+                ]
+            );
+        }
+        ?>
+    </ol>
 </div>
 <div class="container main-page__container">
     <div class="row">
         <div class="col-xs-12">
             <p>Группа компаний «ТАГГЕРД» предлагает широкий спектр охранных услуг для юридических и физических лиц в Москве и Подмосковье! Охрана ЧОП - профессионально, надежно, качественно!
             </p>
-            <p>Группа компаний «ТАГГЕРД» оказывает профессональные охранные услуги с 1993 года, обеспечивает безопасность больших и малых объектов не только в Москве и Подмосковье, но и в разных регионах России. Многолетний опыт и профессиональный подход позволяют организовать эффективную  комплексную охрану частных лиц, обеспечить защиту предприятий и организаций любых масштабов и форм собственности, сохранность движимого / недвижимого имущества и ТМЦ, защиту информации и экономических интересов от любых противоправных посягательств.
+            <p>Группа компаний «ТАГГЕРД» оказывает профессональные охранные услуги с <?=$beginYear?> года, обеспечивает безопасность больших и малых объектов не только в Москве и Подмосковье, но и в разных регионах России. Многолетний опыт и профессиональный подход позволяют организовать эффективную  комплексную охрану частных лиц, обеспечить защиту предприятий и организаций любых масштабов и форм собственности, сохранность движимого / недвижимого имущества и ТМЦ, защиту информации и экономических интересов от любых противоправных посягательств.
             </p>
             <p>В нашем арсенале имеется необходимое оснащение для оказания комплекса охранных услуг: современное оборудование; средства мобильной радиосвязи; травматическое, газовое, огнестрельное оружие (пистолеты, карабины); спецсредства (наручники, резиновые дубинки, шокеры, бронежилеты и др.), служебная униформа (форменный или классический костюм); сторожевые собаки; бронированные автомобили и иной транспорт.
             </p>
@@ -32,22 +76,129 @@ foreach( $banners as $banner) {
 </div>
 <div class="main-page__principles-block">
     <div class="container">
-        <div class="main-page__block">
-            КОРТИНКИ
+        <div class="main-page__block text-center">
+            <span class="h3 text-red">Наши принципы</span>
+            <div class="row">
+                <div class="col-md-3 teaser">
+                    <div class="teaser-image teaser-image-confident"></div>
+                    <div class="teaser-caption">Полная конфиденциальность</div>
+                </div>
+                <div class="col-md-6 teaser">
+                    <div class="teaser-image teaser-image-complex"></div>
+                    <div class="teaser-caption">Комплексная защита</div>
+                </div>
+                <div class="col-md-3 teaser">
+                    <div class="teaser-image teaser-image-license"></div>
+                    <div class="teaser-caption">Лицензированные охранники</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 teaser">
+                    <div class="teaser-image teaser-image-inidividual"></div>
+                    <div class="teaser-caption">Индивидуальный подход<br/> к каждому объекту</div>
+                </div>
+                <div class="col-md-6 teaser">
+                    <div class="teaser-image teaser-image-legal"></div>
+                    <div class="teaser-caption">Работаем в соответствии<br/> с законодатльством РФ</div>
+                </div>
+                <div class="col-md-3 teaser">
+                    <div class="teaser-image teaser-image-flexible"></div>
+                    <div class="teaser-caption">Гибкий подход к любому бюджету</div>
+                </div>
+            </div>
             <a class="main-page__button" href="#">Посмотреть прайс</a>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="main-page__block">
-        тексты
+    <div class="main-page__block text-center">
+        <span class="h3 text-blue">Для наших клиентов</span>
+        <div class="row principles">
+            <div class="col-md-6 text-left">
+                <ul>
+                    <li>Охраны любой сложности</li>
+                    <li>Пост охраны - в день обращения</li>
+                    <li>Весь спектр охранных услуг</li>
+                    <li>Связи и коммуникации</li>
+                    <li>Служба оперативного реагирования</li>
+                    <li>100% квалифицированный персонал</li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-left">
+                <ul>
+                    <li>Подбор кадров - под Заказчика</li>
+                    <li>Различные варианты экипировки</li>
+                    <li>Вооружения, спецсредства, связь</li>
+                    <li>Техничка и оборудования</li>
+                    <li>Сторожевые собаки</li>
+                    <li>Лучшее соотношение &laquo;цена - качество&raquo;</li>
+                </ul>
+            </div>
+        </div>
         <a class="main-page__button" href="#">Заказать консультацию</a>
     </div>
 </div>
 <div class="main-page__digits">
     <div class="container">
         <div class="main-page__block">
-            ЦИФРЫ
+            <div class="row">
+                <div class="col-xs-4 text-center">
+                    <span class="h1 text-blue"><?=$beginYear?></span>
+                    <p>
+                        <?=(date('Y') - $beginYear)?> года на страже Вашей безопасности
+                    </p>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <span class="h1 text-blue">385</span>
+                    <p>385 защищённых объектов</p>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <span class="h1 text-blue">250</span>
+                    <p>250 квалифицированных специалистов</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="main-page__block main-page__block-safety text-center">
+        <span class="h3">Под нашей надежной защитой</span>
+        <div class="row main-page__block-safety-content">
+            <?php
+            $teasers = [
+                ['id' => 'flexible', 'title' => 'Учебные заведения', 'description' => 'Школы, ВУЗы, детские сады'],
+                ['id' => 'living', 'title' => 'Жилые помещения', 'description' => 'Парки, дома отдыха, ночные клубы'],
+                ['id' => 'auto', 'title' => 'Автотранспортные предприятия', 'description' => 'Автостоянки, автосалоны, гаражи, АЗС'],
+                ['id' => 'party', 'title' => 'Массовые мероприятия', 'description' => 'Концерты, свадьбы, соревнования'],
+                ['id' => 'vacation', 'title' => 'Места досуга и отдыха', 'description' => 'Парки, дома отдыха, ночные клубы'],
+                ['id' => 'offices', 'title' => 'Производственные<br/> предприятия и офисы', 'description' => 'Заводы, фабрики, бизнес-центры'],
+                ['id' => 'store', 'title' => 'Магазины', 'description' => 'Торговые центры, супермаркеты'],
+                ['id' => 'medical', 'title' => 'Медицинские учреждения', 'description' => 'Поликлиники, больницы, аптеки'],
+                ['id' => 'buildings', 'title' => 'Строительные объекты', 'description' => 'Стройплощадки'],
+            ];
+            foreach( $teasers as $item){?>
+                <div class="col-md-4 col-sm-6 col-xs-12 teaser">
+                    <div class="teaser-image teaser-image-<?=$item['id']?>"></div>
+                    <div class="teaser-caption">
+                        <div class="teaser-caption-header text-red"><?=$item['title']?></div>
+                        <?=$item['description']?>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+<div class="main-page__reviews">
+    <div class="container">
+        <div class="main-page__block text-center">
+            <span class="h3 text-red ">Отзывы наших клиентов</span>
+            <?php
+            echo Carousel::widget([
+                'items' => $reviews,
+                'id' => 'main-page__carousel',
+            ]);
+            ?>
         </div>
     </div>
 </div>

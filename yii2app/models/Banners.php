@@ -73,7 +73,7 @@ class Banners extends \yii\db\ActiveRecord
         }
 
         if($this->url) {
-            $html.= Html::a('', $this->url, ['class' => 'pull-right']);
+            $html.= Html::a('', $this->url, ['class' => 'carousel-read-more']);
         }
 
         $content.= Html::tag('div', $html, ['class' => 'html']);
@@ -81,7 +81,7 @@ class Banners extends \yii\db\ActiveRecord
 
         return [
             'content' => $content,
-            'caption' => $caption,
+        //    'caption' => $caption,
         ];
     }
 

@@ -23,38 +23,50 @@ AppAsset::register($this);
     <div class="container">
         <a href="/" class="header-logo"></a>
         <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4 text-white">
-                <div class="header-contact-block">
+            <div class="col-md-2 hidden-sm"></div>
+            <div class="row col-md-4 col-sm-12 text-white">
+                <div class="header-contact-block ">
                     <div class="header-contact-block__phone">
                         <span class="icon icon-phone-large"></span>
-                        +7(495)78-262-87
+                        +7 (495) 78-262-87
+                        <div class="header-contact-block__phone-text">
+                            Ежедневно с 9:00 до 22:00<br/>
+                            без выходных и праздников
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <?php
-                echo Nav::widget([
-                    'items' => [
-                        ['label' => 'Обратная связь', 'url' => ['/site/contact'], 'linkOptions' => [
-                            'class' =>  'showModalButton',
-                            'data-target' => '#pending-form',
-                            'data-toggle' => 'modal',
-                            'title' => 'Обратная связь',
-                        ]],
-                        ['label' => 'Онлайн заявка', 'url' => ['/site/pending'], 'linkOptions' => [
-                            'class' =>  'showModalButton',
-                            'data-target' => '#pending-form',
-                            'data-toggle' => 'modal',
-                            'title' => 'Заявка онлайн',
-                        ]],
-                        ['label' => 'Калькулятор', 'url' => ['/calc/default/index']],
-                    ],
-                    'options' => [
-                        'class' => 'navbar-nav navbar-right navbar-short-menu hidden-xs text-yellow '
-                    ],
-                ]);
-                ?>
+            <div class="row col-md-6 hidden-sm">
+
+                    <?php
+                    echo Nav::widget([
+                        'items' => [
+                            ['label' => '<span class="header-block__icon header-block__feedback-icon"></span>Обратная связь',
+                                'url' => ['/site/contact'],
+                                'encode' => false,
+                                'linkOptions' => [
+                                    'class' =>  'showModalButton',
+                                    'data-target' => '#pending-form',
+                                    'data-toggle' => 'modal',
+                                    'title' => 'Обратная связь',
+                                ]],
+                            ['label' => '<span class="header-block__icon header-block__pending-icon"></span>Онлайн заявка',
+                                'encode' => false,
+                                'url' => ['/site/pending'], 'linkOptions' => [
+                                'class' =>  'showModalButton',
+                                'data-target' => '#pending-form',
+                                'data-toggle' => 'modal',
+                                'title' => 'Заявка онлайн',
+                            ]],
+                            ['label' => '<span class="header-block__icon header-block__calculator-icon"></span>Калькулятор',
+                                'encode' => false,
+                                'url' => ['/calc/default/index']],
+                        ],
+                        'options' => [
+                            'class' => 'navbar-nav navbar-right navbar-short-menu hidden-xs text-yellow '
+                        ],
+                    ]);
+                    ?>
             </div>
         </div>
         <div class="row">
