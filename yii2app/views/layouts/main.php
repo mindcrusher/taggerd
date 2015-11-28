@@ -81,14 +81,7 @@ AppAsset::register($this);
                     'class' => 'navbar-nav navbar-right navbar-horizontal-menu hidden-xs text-white'
                 ];
                 echo Nav::widget([
-                    'items' => [
-                        ['label' => 'О компании', 'url' => ['/site/contact']],
-                        ['label' => 'Услуги', 'url' => ['/site/contact']],
-                        ['label' => 'Цены', 'url' => ['/site/contact']],
-                        ['label' => 'Новости и статьи', 'url' => ['/site/contact']],
-                        ['label' => 'Партнерам', 'url' => ['/site/contact']],
-                        ['label' => 'Контакты', 'url' => ['/site/contact']],
-                    ],
+                    'items' => $menu['links']['items'],
                     'options' => [
                         'class' => 'navbar-nav navbar-right navbar-horizontal-menu hidden-xs text-white'
                     ]
