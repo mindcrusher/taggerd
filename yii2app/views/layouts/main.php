@@ -127,8 +127,6 @@ yii\bootstrap\Modal::begin([
 echo "<div id='modalContent'>Подождите...</div>";
 yii\bootstrap\Modal::end();
 ?>
-
-
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage(); ?>
