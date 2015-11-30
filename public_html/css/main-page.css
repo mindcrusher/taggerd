@@ -107,6 +107,10 @@
     height: 697px;
 }
 
+.main-page__carousel a  img {
+    min-width:100% !important;
+    min-height:100% !important;
+}
 .main-page__carousel a {
     position: absolute;
     top: 0;
