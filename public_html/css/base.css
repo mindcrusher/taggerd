@@ -1,5 +1,11 @@
 @import "../fonts/intro.css";
 
+.layout-footer {
+    background:#282828;
+    padding: 20px 0;
+    font-size: 13px;
+    line-height:25px;
+}
 
 @media screen and (min-width:600px) {
     body {

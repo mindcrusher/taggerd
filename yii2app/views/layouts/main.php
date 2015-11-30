@@ -10,8 +10,8 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="<?= Yii::$app->charset ?>" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -109,6 +109,25 @@ AppAsset::register($this);
         <div class="col-sm-4">somtehting else</div>
     </div>
     </div>
+<div class='layout-footer text-white'>
+    <div class='container'>
+        <div class='col-md-6'>
+        <?=Yii::$app->params['copyright']?>
+        </div>
+        <div class='col-md-6 text-right'>
+        <script type="text/javascript">(function() {
+      if (window.pluso)if (typeof window.pluso.start == "function") return;
+      if (window.ifpluso==undefined) { window.ifpluso = 1;
+        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+        var h=d[g]('body')[0];
+        h.appendChild(s);
+      }})();</script>
+    <div class="pluso" data-background="transparent" data-options="big,round,line,horizontal,nocounter,theme=04" data-services="facebook,twitter,vkontakte,odnoklassniki,google"></div>
+        </div>
+    </div>
+</div>
 <?php $this->endBody() ?>
 <?php
 yii\bootstrap\Modal::begin([
