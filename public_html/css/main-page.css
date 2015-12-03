@@ -231,7 +231,7 @@
     background-position: -404px -586px;
 }
 
-.main-page__block-safety .teaser-caption-header {
+.main-page__block-safety .teaser-title {
     font-size: 19px;
 }
 
@@ -241,8 +241,16 @@
 .main-page__block.main-page__block-safety.text-center {
     padding: 60px 0 0 0;
 }
+
 .main-page__block-safety .teaser {
     padding-bottom: 60px;
+    display: block;
+    color: #000000;
+}
+
+.main-page__block-safety .teaser:hover, .main-page__block-safety .teaser:focus {
+    text-decoration: none;
+    color: #000000;
 }
 
 .main-page__block-safety .teaser-image {
