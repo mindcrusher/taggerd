@@ -173,7 +173,9 @@ foreach ($reviewsData as $review) {
             ];
             foreach( $teasers as $item){?>
                 <a href="<?=Url::to([$route, 'alias' => $item['alias']])?>" class="col-md-4 col-sm-6 col-xs-12 teaser">
-                    <div class="teaser-image teaser-image-<?=$item['id']?>"></div>
+                    <div class="teaser-image-block">
+                        <div class="teaser-image teaser-image-<?=$item['id']?>"></div>
+                    </div>
                     <div class="teaser-caption">
                         <div class="teaser-title text-red"><?=$item['title']?></div>
                         <?=$item['description']?>

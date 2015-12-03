@@ -2,12 +2,14 @@
     margin-top: 470px;
 }
 
-.main-page__digits .h1{
+.main-page__digits .h1 {
     font-size: 70px;
     border-bottom: 4px solid #254a73;
     display: inline-block;
     margin: 0;
     margin-bottom: 10px;
+    width: 47%;
+    text-align: left;
 }
 
 .main-page__carousel {
@@ -233,17 +235,19 @@
 
 .main-page__block-safety .teaser-title {
     font-size: 19px;
+    padding-top: 30px;
 }
 
 .main-page__block-safety-content {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
 }
+
 .main-page__block.main-page__block-safety.text-center {
     padding: 60px 0 0 0;
 }
 
 .main-page__block-safety .teaser {
-    padding-bottom: 60px;
+    padding-bottom: 70px;
     display: block;
     color: #000000;
 }
@@ -253,11 +257,29 @@
     color: #000000;
 }
 
-.main-page__block-safety .teaser-image {
-    background: url("../img/safety-sprite.jpg") no-repeat;
+.main-page__block-safety .teaser-image-block {
     height: 185px;
     width: 160px;
     margin: 0 auto;
+    position: relative;
+
+}
+
+.main-page__block-safety .teaser:hover .teaser-image {
+    transform: rotateY( -360deg );
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    perspective: 10000px;
+    backface-visibility: hidden;
+}
+
+.main-page__block-safety .teaser-image {
+    background: url("../img/safety-sprite.jpg") no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .main-page__block-safety .teaser-image.teaser-image-living {
