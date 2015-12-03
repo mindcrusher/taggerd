@@ -4,6 +4,15 @@ jQuery(function(){
         $( "#menu .collapsible-area" ).toggle('fast');
     });
 
+    $('.teaser-image, .teaser-title').click(function(){
+        $('.teaser-caption').css({'display':'none'});
+        $(this).parent().find('.teaser-caption').css({'display':'block'});
+    });
+
+    $('.teaser-caption').click(function(){
+        $(this).parent().find('.teaser-caption').css('display','none');
+    });
+
     jQuery(document).on('click', '.showModalButton', function(){
         if (jQuery('#pending-form').data('bs.modal').isShown) {
             jQuery('#pending-form').find('#modalContent')

@@ -7,6 +7,10 @@
     line-height:25px;
 }
 
+div.footer {
+    background:url("../img/footer-block-bg.jpg");
+}
+
 @media screen and (min-width:600px) {
     body {
         min-width: 980px;

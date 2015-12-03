@@ -1,6 +1,9 @@
 <?php
 use yii\bootstrap\Carousel;
 use \yii\helpers\Html;
+use \yii\helpers\Url;
+
+$route = 'site/info';
 
 $this->registerCssFile("/css/main-page.css", [
     'depends' => [\app\assets\AppAsset::className()],
@@ -77,36 +80,27 @@ foreach ($reviewsData as $review) {
 <div class="main-page__principles-block">
     <div class="container">
         <div class="main-page__block text-center">
+            <?php
+            $principles = [
+                'confident' => ['title' => 'Полная конфиденциальность'],
+                'complex' => ['title' => 'Комплексная защита'],
+                'license' => ['title' => 'Лицензированные охранники'],
+                'individual' => ['title' => 'Индивидуальный подход<br/> к каждому объекту'],
+                'legal' => ['title' => 'Работаем в соответствии<br/> с законодатльством РФ'],
+                'flexible' => ['title' => 'Гибкий подход к любому бюджету'],
+            ];
+            ?>
             <span class="h3 text-red">Наши принципы</span>
             <div class="row">
-                <div class="col-md-3 teaser">
-                    <div class="teaser-image teaser-image-confident"></div>
-                    <div class="teaser-caption">Полная конфиденциальность</div>
+                <?php foreach($principles as $chapter => $principe) {?>
+                <div class="col-md-4 teaser">
+                    <div class="teaser-image teaser-image-<?=$chapter?>"></div>
+                    <div class="teaser-title"><?=$principe['title']?></div>
+                    <div class="teaser-caption"><?=$principe['title']?></div>
                 </div>
-                <div class="col-md-6 teaser">
-                    <div class="teaser-image teaser-image-complex"></div>
-                    <div class="teaser-caption">Комплексная защита</div>
-                </div>
-                <div class="col-md-3 teaser">
-                    <div class="teaser-image teaser-image-license"></div>
-                    <div class="teaser-caption">Лицензированные охранники</div>
-                </div>
+                <?php } ?>
             </div>
-            <div class="row">
-                <div class="col-md-3 teaser">
-                    <div class="teaser-image teaser-image-inidividual"></div>
-                    <div class="teaser-caption">Индивидуальный подход<br/> к каждому объекту</div>
-                </div>
-                <div class="col-md-6 teaser">
-                    <div class="teaser-image teaser-image-legal"></div>
-                    <div class="teaser-caption">Работаем в соответствии<br/> с законодатльством РФ</div>
-                </div>
-                <div class="col-md-3 teaser">
-                    <div class="teaser-image teaser-image-flexible"></div>
-                    <div class="teaser-caption">Гибкий подход к любому бюджету</div>
-                </div>
-            </div>
-            <a class="main-page__button" href="#">Посмотреть прайс</a>
+            <a class="main-page__button" href="<?=Url::to([$route, 'alias' => 'ceny' ])?>">Посмотреть прайс</a>
         </div>
     </div>
 </div>
