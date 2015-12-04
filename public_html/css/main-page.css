@@ -21,7 +21,11 @@
     overflow: hidden;
 }
 
-.carousel-indicators {
+.main-page__carousel .carousel-control {
+    display: none;
+}
+
+.main-page__carousel .carousel-indicators, #main-page__carousel-reviews .carousel-indicators {
     display: none;
 }
 
@@ -129,6 +133,30 @@
     height: 47px;
     float: right;
     position: relative;
+}
+
+#main-page__carousel-reviews .carousel-control {
+    background: none;
+}
+#main-page__carousel-reviews .carousel-control {
+    background: url("../img/sprite.png") no-repeat;
+    opacity: 1;
+}
+#main-page__carousel-reviews .carousel-control.left, #main-page__carousel-reviews .carousel-control.right {
+    background-position: -340px -60px;
+    width: 40px;
+    height: 60px;
+    text-indent: -9999px;
+    overflow: hidden;
+    top: 25%;
+}
+
+#main-page__carousel-reviews .carousel-control.left {
+    left: -20px;
+}
+#main-page__carousel-reviews .carousel-control.right {
+    background-position: -380px -60px;
+    right: -20px;
 }
 
 .main-page__block .principles {
@@ -341,7 +369,7 @@
 }
 
 .main-page__block {
-    padding: 60px;
+    padding: 60px 15px;
 }
 
 .main-page__button {
