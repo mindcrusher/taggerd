@@ -11,7 +11,10 @@ $this->title = 'Заявка на услуги';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact <?=Yii::$app->request->isAjax ? '' : 'container'?>">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <?php if(!Yii::$app->request->isAjax) {?>
+        <h1><?= Html::encode($this->title) ?></h1>
+    <?}?>
+
     <?php if (Yii::$app->session->hasFlash('pendingFormSubmitted')): ?>
 
     <div class="alert alert-success">
