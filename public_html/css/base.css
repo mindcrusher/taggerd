@@ -2,13 +2,53 @@
 
 .layout-footer {
     background:#282828;
-    padding: 20px 0;
     font-size: 13px;
     line-height:25px;
+    margin-top: 50px;
+    padding: 25px 0px;
+}
+
+.footer-share-widget-text {
+    margin-top: 14px;
+}
+.footer-share-widget {
+    overflow: hidden;
+    height: 49px;
+    vertical-align: middle;
+    text-align: left;
 }
 
 div.footer {
     background:url("../img/footer-block-bg.jpg");
+    color: #ffffff;
+    padding-top: 50px;
+    font-family: "PT Sans Caption";
+    font-weight: 100;
+    font-size: 17px;
+}
+
+div.footer .contact-row {
+    display: block;
+    clear: both;
+}
+
+div.footer .footer-title {
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+div.footer ul, div.footer ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.footer ul li {
+    padding: 5px 0;
+}
+
+div.footer ul li a {
+    color: #ffffff;
 }
 
 @media screen and (min-width:600px) {
@@ -43,7 +83,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 }
 
 .text-blue, .text-blue a, .text-blue a:hover, .text-blue a:focus {
-    color: #254a73;
+    color: #274875;
 }
 
 a {
@@ -55,6 +95,23 @@ a {
     background-repeat: no-repeat;
 }
 
+.footer-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-phone {
+    background-position: -10px -4px;
+}
+
+.icon-mail {
+    background-position: -70px -6px;
+}
+
+.icon-address {
+    background-position: -40px -4px;
+}
+
 .icon-phone-large {
     background-position: -100px -7px;
     width: 40px;
@@ -62,6 +119,28 @@ a {
     display: inline-block;
     vertical-align: middle;
 }
+
+.header-block__icon {
+    background: url("../img/sprite.png") no-repeat;
+    width: 34px;
+    height: 23px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-block__feedback-icon {
+    background-position:-191px -10px;
+}
+
+
+.header-block__pending-icon {
+    background-position:-238px -10px;
+}
+
+.header-block__calculator-icon {
+    background-position:-155px -10px;
+}
+
 
 .header-contact-block__phone {
     font-size: 24px;
@@ -130,26 +209,7 @@ a {
         position: relative;
     }
 
-    .header-block__icon {
-        background: url("../img/sprite.png") no-repeat;
-        width: 34px;
-        height: 23px;
-        display: inline-block;
-        vertical-align: middle;
-    }
 
-    .header-block__feedback-icon {
-        background-position:-191px -10px;
-    }
-
-
-    .header-block__pending-icon {
-        background-position:-238px -10px;
-    }
-
-    .header-block__calculator-icon {
-        background-position:-155px -10px;
-    }
 }
 
 @media screen and (min-width:820px) {

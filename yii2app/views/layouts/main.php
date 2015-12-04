@@ -1,9 +1,10 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\Menu;
-use yii\bootstrap\NavBar;
 use yii\bootstrap\Nav;
 use app\assets\AppAsset;
+use \app\models\Infoblock;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -28,10 +29,9 @@ AppAsset::register($this);
                 <div class="header-contact-block ">
                     <div class="header-contact-block__phone">
                         <span class="icon icon-phone-large"></span>
-                        +7 (495) 78-262-87
+                        <?=Infoblock::findByPlaceHolder('MAIN_PHONE')->value?>
                         <div class="header-contact-block__phone-text">
-                            Ежедневно с 9:00 до 22:00<br/>
-                            без выходных и праздников
+                            <?=Infoblock::findByPlaceHolder('WORK_HOURS')->value?>
                         </div>
                     </div>
                 </div>
@@ -94,11 +94,37 @@ AppAsset::register($this);
 <?=$content?>
 <div class="footer">
     <div class="container">
+        <div class="footer-title">Наши координаты</div>
+
         <div class="row">
             <div class="col-sm-4">
-                <?php foreach(app\models\Contacts::findAllActive() as $contact) { ?>
-                    <div><span class="<?=$contact->icon()?>" aria-hidden="true"></span> &nbsp;<?=$contact->formatted();?></div>
-                <? } ?>
+                <?php
+                $placeholders = ['MAIN_CONTACTS','MAIN_ADDRESS','MAIN_EMAIL'];
+                foreach($placeholders as $placeholder) {
+                    $contact = Infoblock::findByPlaceHolder($placeholder);
+                    if($contact) {
+                ?>
+                <div class="contact-row">
+                    <div class="col-xs-2 row"><div class="footer-icon <?=$contact->icon()?>"></div></div>
+                    <div class="col-xs-10">
+                        <div class="row"><?=$contact->value?></div>
+                    </div>
+                </div>
+                <?php }} ?>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+                <?php
+                if(!empty(Yii::$app->controller->menu)) {
+                    echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                }
+                ?>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+                <?php
+                if(!empty(Yii::$app->controller->menu)) {
+                    echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                }
+                ?>
             </div>
             <div class="col-sm-4 hidden-xs">
                 <?php
@@ -107,7 +133,6 @@ AppAsset::register($this);
                 }
                 ?>
             </div>
-            <div class="col-sm-4">somtehting else</div>
         </div>
     </div>
     <div class='layout-footer text-white'>
@@ -115,17 +140,22 @@ AppAsset::register($this);
             <div class='col-md-6'>
                 <?=Yii::$app->params['copyright']?>
             </div>
-            <div class='col-md-6 text-right'>
-                <script type="text/javascript">(function() {
-                        if (window.pluso)if (typeof window.pluso.start == "function") return;
-                        if (window.ifpluso==undefined) { window.ifpluso = 1;
-                            var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                            s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                            s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-                            var h=d[g]('body')[0];
-                            h.appendChild(s);
-                        }})();</script>
-                <div class="pluso" data-background="transparent" data-options="big,round,line,horizontal,nocounter,theme=04" data-services="facebook,twitter,vkontakte,odnoklassniki,google"></div>
+            <div class='col-md-6 text-right footer-share-widget'>
+                <div class="col-xs-6 text-right footer-share-widget-text">
+                    Поделитесь с друзьями
+                </div>
+                <div class="col-xs-6">
+                    <script type="text/javascript">(function() {
+                            if (window.pluso)if (typeof window.pluso.start == "function") return;
+                            if (window.ifpluso==undefined) { window.ifpluso = 1;
+                                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                                var h=d[g]('body')[0];
+                                h.appendChild(s);
+                            }})();</script>
+                    <div class="pluso" data-background="transparent" data-options="big,round,line,horizontal,nocounter,theme=04" data-services="facebook,twitter,vkontakte,odnoklassniki,google"></div>
+                </div>
             </div>
         </div>
     </div>
