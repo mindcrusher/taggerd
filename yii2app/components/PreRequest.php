@@ -14,7 +14,7 @@ class PreRequest
 {
     public static function control()
     {
-        $status_code = 302;
+        $status_code = 301;
 
         $app = Yii::$app;
         $pathInfo = $app->request->pathInfo;
