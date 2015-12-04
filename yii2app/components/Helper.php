@@ -88,7 +88,7 @@ class Helper
         $text = str_replace("justify","left", $text);
         $text = preg_replace("#style='((background-)?color:.*|font-family:.*;?|text-align: justify;?)'#Ui",'', $text);
         $text = preg_replace("#bgcolor='.*'#Ui",'', $text);
-        $text = preg_replace("#<h\d>(.*)</h\d>#Uis",'$1', $text);
+        $text = preg_replace("#<h\d>(.*)</h\d>#Uis",'<p>$1</p>', $text);
         return $text;
     }
 }
