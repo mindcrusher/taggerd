@@ -17,6 +17,18 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'urlManager' => [
+            'baseUrl' => '/',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'suffix' => '/',
+            'rules' => [
+                'login' => '/user/security/login',
+                'logout' => '/user/security/logout',
+                'info/<alias>' => 'site/info',
+            ]
+        ],
         'log' => [
             'targets' => [
                 [

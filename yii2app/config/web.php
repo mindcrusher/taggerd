@@ -65,6 +65,7 @@ $config = [
             //'useFileTransport' => true,
         ],
         'urlManager' => [
+            'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => false,

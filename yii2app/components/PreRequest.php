@@ -36,8 +36,9 @@ class PreRequest
         }
 
         if ($allowRedirect) {
-            header('Location : /'.$destination, true, $status_code);
-            exit;
+            $destination = '/' . $destination;
+            $app->response->redirect($destination, 301, false);
+            $app->end();
         }
     }
 } 

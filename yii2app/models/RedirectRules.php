@@ -14,6 +14,8 @@ use Yii;
  */
 class RedirectRules extends \yii\db\ActiveRecord
 {
+    public $destination;
+
     const REDIRECT_STATUS_PERMANENT = 301;
 
     public static $map;
@@ -35,6 +37,7 @@ class RedirectRules extends \yii\db\ActiveRecord
             [['from', 'to'], 'string', 'max' => 255],
             [['from'], 'unique'],
             [['from','to'], 'required'],
+            //[['destination', 'safe']],
             ['from', 'compare','compareAttribute'=>'to','operator'=>'!='],
         ];
     }
@@ -69,6 +72,7 @@ class RedirectRules extends \yii\db\ActiveRecord
 
     public static function preload()
     {
+        self::normalize();
         $suffix = Yii::$app->urlManager->suffix;
         if(empty(self::$map)) {
             $to_list = [];
@@ -80,6 +84,19 @@ class RedirectRules extends \yii\db\ActiveRecord
                 self::$map[$from] = $rule ;
                 self::$map[$from. $suffix ] = $rule ;
             }
+        }
+    }
+
+    public static function normalize()
+    {
+        $Redundancies = self::find()
+            ->select('redirect_rules.*,r2.to as destination')
+            ->innerJoin(self::tableName() . ' as r2', '`redirect_rules`.`to` = `r2`.`from`')
+            ->all();
+
+        foreach ($Redundancies as $rule) {
+            $rule->to = $rule->destination;
+            $rule->save(false);
         }
     }
 }
