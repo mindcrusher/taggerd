@@ -29,9 +29,9 @@ AppAsset::register($this);
                 <div class="header-contact-block ">
                     <div class="header-contact-block__phone">
                         <span class="icon icon-phone-large"></span>
-                        <?=Infoblock::findByPlaceHolder('MAIN_PHONE')?>
+                        ${MAIN_PHONE}
                         <div class="header-contact-block__phone-text">
-                            <?=Infoblock::findByPlaceHolder('WORK_HOURS')?>
+                            ${WORK_HOURS}
                         </div>
                     </div>
                 </div>

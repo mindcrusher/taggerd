@@ -135,7 +135,7 @@ foreach ($reviewsData as $review) {
                 </ul>
             </div>
         </div>
-        <a class="main-page__button" href="#">Заказать консультацию</a>
+        <a class="main-page__button" href="<?=Url::to(['site/pending'])?>">Заказать консультацию</a>
     </div>
 </div>
 <div class="main-page__digits">

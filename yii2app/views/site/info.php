@@ -1,7 +1,7 @@
 <?php
 $this->title = !empty($page->seo_title) ? $page->seo_title : $page->title;
 ?>
-<div class="container">
+<div class="<?=Yii::$app->request->isAjax ? '' : 'container'?>">
     <h1><?=$page->title?></h1>
     <?php if(!empty($page->description)) {?>
         <blockquote><?=$page->description?></blockquote>

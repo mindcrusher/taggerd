@@ -9,7 +9,7 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<div class="site-error <?=Yii::$app->request->isAjax ? '' : 'container'?>">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
