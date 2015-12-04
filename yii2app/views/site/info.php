@@ -14,5 +14,5 @@ $this->registerMetaTag([
     <?php if(!empty($page->description)) {?>
         <blockquote><?=$page->description?></blockquote>
     <?php } ?>
-    <?=$page->text?>
+    <?=$page->getText()?>
 </div>

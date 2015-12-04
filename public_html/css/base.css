@@ -1,5 +1,9 @@
 @import "../fonts/intro.css";
 
+#base-content table td {
+    vertical-align: top;
+}
+
 .layout-footer {
     background:#282828;
     font-size: 13px;

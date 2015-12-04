@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\Helper;
 use Yii;
 use yii\helpers\Url;
 
@@ -74,5 +75,10 @@ class Pages extends \yii\db\ActiveRecord
         return self::find()
             ->asArray()
             ->all();
+    }
+
+    public function getText()
+    {
+        return Helper::clearText( $this->text );
     }
 }

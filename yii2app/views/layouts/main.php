@@ -91,7 +91,9 @@ AppAsset::register($this);
         </div>
     </div>
 </div>
-<?=$content?>
+<div id="base-content">
+    <?=$content?>
+</div>
 <div class="footer">
     <div class="container">
         <div class="footer-title">Наши координаты</div>
