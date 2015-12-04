@@ -57,7 +57,7 @@ class WebmasterController extends Controller
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE );
 
         echo "Request is: " . $url . '('.$firstHttpCode.')';
-        if($redirectCount) {
+        if($firstHttpCode == RedirectRules::REDIRECT_STATUS_PERMANENT) {
             echo ' -> ' . $redirectUrl . '('.$httpCode.')';
         }
         if($redirectCount > 1) {

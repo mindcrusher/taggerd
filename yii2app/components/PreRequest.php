@@ -28,9 +28,10 @@ class PreRequest
             $allowRedirect = true;
             $destination = $rule->getDestination();
             $status_code = $rule->status_code;
+            var_dump($rule);
         }
 
-        if(substr($destination, -1) !== $suffix) {
+        if(!empty($destination) && substr($destination, -1) !== $suffix) {
             $allowRedirect = true;
             $destination = $pathInfo . $suffix;
         }
