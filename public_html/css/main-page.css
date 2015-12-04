@@ -1,5 +1,5 @@
 .main-page__container {
-    margin-top: 470px;
+    margin-top: 10px;
 }
 
 .main-page__digits .h1 {
@@ -372,25 +372,7 @@
     padding: 60px 15px;
 }
 
-.main-page__button {
-    text-transform: uppercase;
-    padding: 14px 0;
-    padding-bottom: 24px;
-    background: url("../img/sprite.png") 0px -125px no-repeat;
-    overflow: hidden;
-    display: block;
-    text-align: center;
-    width: 423px;
-    margin: 0 auto;
-    font-size: 16px;
-    font-family: 'Intro';
-}
 
-a.main-page__button {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-}
 .main-page__carousel .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     width: auto;
     max-width: none;
@@ -398,6 +380,7 @@ a.main-page__button {
 }
 
 @media screen and (max-width:767px) {
+
     .main-page__carousel .html {
         padding-top: 10px;
         width: 90%;
@@ -407,6 +390,10 @@ a.main-page__button {
 @media screen and (min-width:768px) {
     .main-page__carousel .html {
         width: 90%;
+    }
+
+    .main-page__container {
+        margin-top: 470px;
     }
 }
 

@@ -1,5 +1,31 @@
 @import "../fonts/intro.css";
 
+.header-contact-block .phone {
+    font-size: 12px;
+}
+.header-contact-block .text{
+    font-size: 9px;
+}
+
+body {
+    font-family: arial;
+}
+
+body img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 23px;
+}
+h2 {
+    font-size: 21px;
+}
+
+h3 {
+    font-size: 19px;
+}
+
 #base-content table td {
     vertical-align: top;
 }
@@ -26,7 +52,7 @@ div.footer {
     background:url("../img/footer-block-bg.jpg");
     color: #ffffff;
     padding-top: 50px;
-    font-family: "PT Sans Caption";
+    font-family: "PT Sans Caption", "PT Sans", sans-serif;
     font-weight: 100;
     font-size: 17px;
 }
@@ -55,22 +81,12 @@ div.footer ul li a {
     color: #ffffff;
 }
 
-@media screen and (min-width:600px) {
-    body {
-        min-width: 980px;
-    }
-}
-
 .container {
     position: relative;
 }
 
-body {
-    font-family: 'PT Sans Caption', sans-serif, arial;
-}
-
 h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
-    font-family: "Intro";
+    font-family: "Intro",sans-serif, arial;
 }
 
 
@@ -116,20 +132,25 @@ a {
     background-position: -40px -4px;
 }
 
-.icon-phone-large {
-    background-position: -100px -7px;
-    width: 40px;
-    height: 29px;
-    display: inline-block;
-    vertical-align: middle;
+.mobile-menu {
+    padding: 5px;
+    background: #003147;
+}
+.mobile-menu #show-menu{
+    float: right;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
 }
 
 .header-block__icon {
     background: url("../img/sprite.png") no-repeat;
-    width: 34px;
+    width: 26px;
     height: 23px;
     display: inline-block;
     vertical-align: middle;
+    margin-right: 10px;
 }
 
 .header-block__feedback-icon {
@@ -142,29 +163,91 @@ a {
 }
 
 .header-block__calculator-icon {
-    background-position:-155px -10px;
+    background-position:-150px -10px;
+}
+
+.header-block__menu-icon {
+    background-position:-279px -10px;
+}
+
+.header-bg {
+    background: #1a3a5c;
+    z-index: 2;
+}
+
+.header-logo {
+    background: url("../img/taggerd-logo.png") no-repeat;
+    background-size: contain;
+    min-height: 100px;
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.header-contact-block {
+    padding-top: 30px;
+}
+
+.navbar-nav > li {
+    float: left;
+}
+
+.header-navbar-menu {
+    display: none;
+}
+
+.header-navbar-menu .navbar-nav > li {
+    clear: both;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #737373;
+    border-bottom: 1px solid #333;
+}
+
+.header-navbar-menu ul.navbar-horizontal-menu{
+    border-bottom: 1px solid #737373;
+    margin-bottom: 0;
+}
+
+.navbar-short-menu {
+    position: relative;
+    z-index: 1;
+}
+
+.nav > li > a {
+    padding: 10px 5px;
 }
 
 
-.header-contact-block__phone {
-    font-size: 24px;
-    padding-top: 20px;
-    height: 123px;
+.nav > li > a:hover, .nav > li > a:focus {
+    background: none;
+    border: none;
 }
+
+.navbar-horizontal-menu > li > a:hover, .navbar-horizontal-menu > li > a:focus {
+    background: #12273e;
+}
+
 
 @media screen and (min-width:768px) {
 
-    .header-contact-block__phone {
-        text-align: center;
+    .header-contact-block .phone {
+        font-size: 15px;
     }
 
-    .header-contact-block__phone-text {
-        padding-top: 5px;
-        margin-left: 100px;
-        font-size: 14px;
-        font-weight: 0;
-        line-height: 16px;
-        text-align: left;
+    .header-navbar-menu {
+        display: block;
+    }
+
+    .header-navbar-menu .navbar-nav > li {
+        clear: none;
+        width: auto;
+        border: none;
+    }
+
+    .header-navbar-menu ul.navbar-horizontal-menu{
+        border: none;
     }
 
     .header-bg {
@@ -172,41 +255,37 @@ a {
         z-index: 2;
     }
 
+    body {
+        font-family: 'PT Sans Caption', sans-serif, arial;
+    }
+
+
     .navbar-short-menu {
         height: 123px;
     }
 
-    .nav > li > a:hover, .nav > li > a:focus {
-        background: none;
-        border: none;
+    .nav > li > a {
+        padding: 10px 15px;
     }
 
     .navbar-short-menu > li > a {
-        padding: 50px 10px;
+        padding: 50px 0px;
+        padding-right: 5px;
+        padding-left: 5px;
     }
+
     .navbar-short-menu > li > a {
         font-size: 14px;
-
     }
 
     .navbar-horizontal-menu > li > a {
         padding: 25px 5px;
-        font-size: 16px;
-    }
-
-    .navbar-nav > li > a:hover {
-        background: #8b99a9;
-
+        font-size: 14px;
     }
 
     .header-logo {
-        background: url("../img/taggerd-logo.png");
         height: 217px;
         width: 169px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
     }
 
     .header-block {
@@ -217,33 +296,47 @@ a {
 
 }
 
-@media screen and (min-width:820px) {
-    .navbar-horizontal-menu > li > a {
-        padding: 25px 5px;
-    }
-}
-
-@media screen and (min-width:990px) {
-    .navbar-horizontal-menu > li > a {
-        padding: 25px 7px;
-    }
-}
-
 
 @media screen and (min-width:992px) {
     .navbar-horizontal-menu > li > a {
-        padding: 25px 25px;
+        padding: 25px 20px;
+    }
+
+    .header-contact-block {
+        text-align: left;
+        position: relative;
+        padding-top: 30px;
+    }
+
+    .header-contact-block .phone {
+        font-size: 20px;
+    }
+
+    .header-contact-block .text{
+        font-size: 13px;
+    }
+
+    .header-contact-block .icon-phone {
+        position: absolute;
+        left: -20px;
+        top: 25px;
+        width: 30px;
+        height: 35px;
+        background-position: -108px 0px;
     }
 }
 
 @media screen and (min-width:1200px) {
     .navbar-horizontal-menu > li > a {
-        padding: 25px 40px;
+        padding: 25px 30px;
+        font-size: 16px;
     }
 }
 
-@media screen and (max-width:1000px) {
-    .navbar-short-menu > li {
-        padding: 0px 0px;
+
+@media screen and (min-width:1300px) {
+    .navbar-horizontal-menu > li > a {
+        padding: 25px 27px;
+        font-size: 17px;
     }
 }

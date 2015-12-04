@@ -15,7 +15,9 @@ jQuery(function(){
         $(this).parent().find('.teaser-caption').css('display','none');
     });
 
-
+    $('#show-menu').click(function(){
+        $('.header-navbar-menu').toggle();
+    });
 
 
     jQuery(document).on('click', '.showModalButton', function(){

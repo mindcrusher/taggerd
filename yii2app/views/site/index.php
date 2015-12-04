@@ -58,7 +58,7 @@ foreach ($reviewsData as $review) {
 }
 
 ?>
-<div class="main-page__carousel hidden-xs hidden-sm">
+<div class="main-page__carousel hidden-xs hidden-xs">
     <?php
     echo Carousel::widget([
         'items' => $items,
@@ -110,7 +110,7 @@ foreach ($reviewsData as $review) {
             <span class="h3 text-red">Наши принципы</span>
             <div class="row">
                 <?php foreach($principles as $chapter => $principe) {?>
-                <div class="col-md-4 teaser">
+                <div class="col-md-4 col-sm-6 col-xs-12 teaser">
                     <div class="teaser-image teaser-image-<?=$chapter?>"></div>
                     <div class="teaser-title"><?=$principe['title']?></div>
                     <div class="teaser-caption"><?=$principe['title']?></div>
@@ -153,17 +153,17 @@ foreach ($reviewsData as $review) {
     <div class="container">
         <div class="main-page__block">
             <div class="row">
-                <div class="col-xs-4 text-center">
+                <div class="col-xs-12 col-sm-4 text-center">
                     <span class="h1 text-blue"><?=$beginYear?></span>
                     <p>
                         <?=(date('Y') - $beginYear)?> года на страже Вашей безопасности
                     </p>
                 </div>
-                <div class="col-xs-4 text-center">
+                <div class="col-xs-12 col-sm-4 text-center">
                     <span class="h1 text-blue">385</span>
                     <p>385 защищённых объектов</p>
                 </div>
-                <div class="col-xs-4 text-center">
+                <div class="col-xs-12 col-sm-4 text-center">
                     <span class="h1 text-blue">250</span>
                     <p>250 квалифицированных специалистов</p>
                 </div>
@@ -202,7 +202,7 @@ foreach ($reviewsData as $review) {
         </div>
     </div>
 </div>
-<div class="main-page__reviews">
+<div class="main-page__reviews hidden-xs">
     <div class="container">
         <div class="main-page__block text-center">
             <span class="h3 text-red ">Отзывы наших клиентов</span>

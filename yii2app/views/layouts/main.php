@@ -22,68 +22,69 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <div class="header-bg header-block">
     <div class="container">
-        <a href="/" class="header-logo"></a>
         <div class="row">
-            <div class="col-md-2 hidden-sm"></div>
-            <div class="row col-md-4 col-sm-12 text-white">
-                <div class="header-contact-block ">
-                    <div class="header-contact-block__phone">
-                        <span class="icon icon-phone-large"></span>
-                        ${MAIN_PHONE}
-                        <div class="header-contact-block__phone-text">
-                            ${WORK_HOURS}
+            <div class="col-md-3 col-xs-4">
+                <a href="/" class="header-logo"></a>
+            </div>
+            <div class="row col-md-9 col-xs-8 text-white text-right">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12 header-contact-block ">
+                        <div class="icon icon-phone"></div>
+                        <div class="row">
+                            <div class="phone col-xs-12">
+                                ${MAIN_PHONE}
+                            </div>
+                            <div class="text col-xs-12">
+                                ${WORK_HOURS}
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-sm-8 col-xs-12">
+                            <?php
+                            echo Nav::widget([
+                                'items' => [
+                                    ['label' => '<span class="header-block__icon header-block__feedback-icon"></span><span class="hidden-sm hidden-xs">Обратная связь</span>',
+                                        'url' => ['/site/contact'],
+                                        'encode' => false,
+                                        'linkOptions' => [
+                                            'class' =>  'showModalButton',
+                                            'data-target' => '#pending-form',
+                                            'data-toggle' => 'modal',
+                                            'title' => 'Обратная связь',
+                                        ]],
+                                    ['label' => '<span class="header-block__icon header-block__pending-icon"></span><span class="hidden-sm hidden-xs">Онлайн заявка</span>',
+                                        'encode' => false,
+                                        'url' => ['/site/pending'], 'linkOptions' => [
+                                        'class' =>  'showModalButton',
+                                        'data-target' => '#pending-form',
+                                        'data-toggle' => 'modal',
+                                        'title' => 'Заявка онлайн',
+                                    ]],
+                                    ['label' => '<span class="header-block__icon header-block__calculator-icon"></span><span class="hidden-sm hidden-xs">Калькулятор</span>',
+                                        'encode' => false,
+                                        'url' => ['/calc/default/index']],
+                                ],
+                                'options' => [
+                                    'class' => 'hidden-xs navbar-nav navbar-right navbar-short-menu text-yellow '
+                                ],
+                            ]);
+                            ?>
                     </div>
                 </div>
             </div>
-            <div class="row col-md-6 hidden-sm">
-
-                    <?php
-                    echo Nav::widget([
-                        'items' => [
-                            ['label' => '<span class="header-block__icon header-block__feedback-icon"></span>Обратная связь',
-                                'url' => ['/site/contact'],
-                                'encode' => false,
-                                'linkOptions' => [
-                                    'class' =>  'showModalButton',
-                                    'data-target' => '#pending-form',
-                                    'data-toggle' => 'modal',
-                                    'title' => 'Обратная связь',
-                                ]],
-                            ['label' => '<span class="header-block__icon header-block__pending-icon"></span>Онлайн заявка',
-                                'encode' => false,
-                                'url' => ['/site/pending'], 'linkOptions' => [
-                                'class' =>  'showModalButton',
-                                'data-target' => '#pending-form',
-                                'data-toggle' => 'modal',
-                                'title' => 'Заявка онлайн',
-                            ]],
-                            ['label' => '<span class="header-block__icon header-block__calculator-icon"></span>Калькулятор',
-                                'encode' => false,
-                                'url' => ['/calc/default/index']],
-                        ],
-                        'options' => [
-                            'class' => 'navbar-nav navbar-right navbar-short-menu hidden-xs text-yellow '
-                        ],
-                    ]);
-                    ?>
+            <div class="col-xs-12 mobile-menu hidden-md hidden-sm hidden-lg">
+                <span id="show-menu" class="header-block__icon header-block__menu-icon"></span>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <?php
-                // $hasMenu = !empty(Yii::$app->controller->menu[4]);
-                // if($hasMenu) {
-                ?>
+            <div class="col-md-9 header-navbar-menu">
                 <?php
                 $menu = Yii::$app->controller->menu[2];
                 $menu['options'] = [
-                    'class' => 'navbar-nav navbar-right navbar-horizontal-menu hidden-xs text-white'
+                    'class' => 'navbar-nav navbar-right navbar-horizontal-menu text-white'
                 ];
                 echo Nav::widget([
                     'items' => $menu['links']['items'],
                     'options' => [
-                        'class' => 'navbar-nav navbar-right navbar-horizontal-menu hidden-xs text-white'
+                        'class' => 'navbar-nav navbar-right navbar-horizontal-menu text-white'
                     ]
                 ]);
                 ?>
