@@ -108,7 +108,7 @@ AppAsset::register($this);
                     if($contact) {
                 ?>
                 <div class="contact-row">
-                    <div class="col-xs-2 row"><div class="footer-icon <?=$contact->icon()?>"></div></div>
+                    <div class="col-xs-2"><div class="footer-icon <?=$contact->icon()?>"></div></div>
                     <div class="col-xs-10">
                         <div class="row"><?=$contact->value?></div>
                     </div>

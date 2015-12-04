@@ -60,6 +60,7 @@ div.footer {
 div.footer .contact-row {
     display: block;
     clear: both;
+    margin-left: -15px;
 }
 
 div.footer .footer-title {
