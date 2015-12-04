@@ -38,6 +38,11 @@ $config = [
         'assetManager' => [
             'linkAssets' => true,
         ],
+        'view' => [
+            'on afterRender' => function ($event) {
+                $event->output = \app\models\Infoblock::renderPlaceHolders($event->output);
+            },
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'jOgCCKREGYoAUMOxGhDzUcLrabftZRxO',

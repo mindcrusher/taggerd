@@ -8,11 +8,13 @@
 
 namespace app\components;
 
+use app\models\Infoblock;
 use Yii;
 
 trait Bootstrap
 {
     public $menu;
+    public $infoblocks;
 
     final function initDependants()
     {
@@ -29,5 +31,7 @@ trait Bootstrap
                 'links' => ['items' => $items],
             ];
         }
+
+        $this->infoblocks = Infoblock::preload();
     }
 }

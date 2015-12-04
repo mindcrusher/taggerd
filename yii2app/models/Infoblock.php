@@ -90,7 +90,10 @@ class Infoblock extends \yii\db\ActiveRecord
 
     public static function findByPlaceHolder( $placeholder )
     {
-        return self::find()->where(['placeholder' => $placeholder, 'is_active' => self::IS_ACTIVE])->one();
+        if(empty(Yii::$app->controller->infoblocks)) {
+            Yii::$app->controller->infoblocks = self::preload();
+        }
+        return Yii::$app->controller->infoblocks[$placeholder];
     }
     
     public function formatted()
@@ -109,5 +112,32 @@ class Infoblock extends \yii\db\ActiveRecord
         if(!empty($this->icon)) {
             return $this->iconMap[$this->icon];
         }
+    }
+
+    public static function preload()
+    {
+        $_infoblocks = [];
+        if(empty(Yii::$app->controller->infoblocks)) {
+            $infoblocks = Infoblock::find()->where('placeholder is not null')->all();
+            foreach($infoblocks as $block) {
+                $_infoblocks[$block->placeholder] = $block;
+            }
+            return $_infoblocks;
+        } else {
+            return Yii::$app->controller->infoblocks;
+        }
+    }
+
+    public static function renderPlaceHolders( $text )
+    {
+        foreach (self::preload() as $block) {
+            $text = str_replace('${'.$block->placeholder.'}', $block->value, $text);
+        }
+        return $text;
+    }
+
+    public function __toString()
+    {
+        return $this->value;
     }
 }
