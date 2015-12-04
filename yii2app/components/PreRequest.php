@@ -7,6 +7,7 @@
  */
 
 namespace app\components;
+use app\models\RedirectRules;
 use Yii;
 
 
@@ -22,19 +23,21 @@ class PreRequest
         $allowRedirect = false;
         $destination = $pathInfo;
 
-        $rule = \app\models\RedirectRules::getSource($pathInfo);
+        $rule = RedirectRules::getSource($pathInfo);
         if($rule) {
             $allowRedirect = true;
             $destination = $rule->getDestination();
+            $status_code = $rule->status_code;
         }
 
-        if(!empty($pathInfo) && substr($pathInfo, -1) !== $suffix) {
+        if(substr($destination, -1) !== $suffix) {
             $allowRedirect = true;
             $destination = $pathInfo . $suffix;
         }
 
         if ($allowRedirect) {
-            $app->response->redirect('/' . $destination, $status_code);
+            header('Location : /'.$destination, true, $status_code);
+            exit;
         }
     }
 } 

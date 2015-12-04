@@ -15,6 +15,8 @@ use Yii;
 class RedirectRules extends \yii\db\ActiveRecord
 {
     const REDIRECT_STATUS_PERMANENT = 301;
+
+    public static $map;
     /**
      * @inheritdoc
      */
@@ -52,7 +54,10 @@ class RedirectRules extends \yii\db\ActiveRecord
 
     public static function getSource($from)
     {
-        return self::findOne(['from' => '/' . $from]);
+        self::preload();
+        if(array_key_exists($from, self::$map)) {
+            return self::$map[$from];
+        }
     }
 
     public function getDestination()
@@ -60,5 +65,21 @@ class RedirectRules extends \yii\db\ActiveRecord
         $to = ltrim($this->to, '/');
 
         return $to;
+    }
+
+    public static function preload()
+    {
+        $suffix = Yii::$app->urlManager->suffix;
+        if(empty(self::$map)) {
+            $to_list = [];
+            $rules = self::find()->all();
+            foreach ($rules as &$rule) {
+                $from = trim($rule->from, $suffix);
+                $to = trim($rule->to, $suffix);
+                $to_list[$to][] = $from;
+                self::$map[$from] = $rule ;
+                self::$map[$from. $suffix ] = $rule ;
+            }
+        }
     }
 }
