@@ -3,6 +3,17 @@ use yii\bootstrap\Carousel;
 use \yii\helpers\Html;
 use \yii\helpers\Url;
 
+$page = \app\models\Pages::findOne(1);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $page->seo_keywords
+]);
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->seo_description
+]);
+$this->title = $page->seo_title;
+
 $route = 'site/info';
 
 $this->registerCssFile("/css/main-page.css", [
