@@ -118,7 +118,7 @@ AppAsset::register($this);
             <div class="col-sm-2 hidden-xs">
                 <?php
                 if(!empty(Yii::$app->controller->menu)) {
-                    echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                    echo Menu::widget(Yii::$app->controller->menu[4]['links']);
                 }
                 ?>
             </div>
@@ -132,7 +132,7 @@ AppAsset::register($this);
             <div class="col-sm-4 hidden-xs">
                 <?php
                 if(!empty(Yii::$app->controller->menu)) {
-                    echo Menu::widget(Yii::$app->controller->menu[5]['links']);
+                    echo Menu::widget(Yii::$app->controller->menu[6]['links']);
                 }
                 ?>
             </div>
