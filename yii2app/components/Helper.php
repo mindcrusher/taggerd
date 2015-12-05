@@ -27,6 +27,7 @@ class Helper
         $st = trim($st);
         $replace = array(
             " " => "-",
+            "\"" => "",
             "'" => "",
             "." => ".",
             "`" => "",
