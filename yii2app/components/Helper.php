@@ -72,7 +72,7 @@ class Helper
             "ї" => "yi", "Ї" => "yi",
             "є" => "e", "Є" => "e"
         );
-        $st = str_replace(' ',' ', $st);
+        $st = preg_replace('#\s+#Uis',' ', $st);
         return strtr($st, $replace);
     }
     
