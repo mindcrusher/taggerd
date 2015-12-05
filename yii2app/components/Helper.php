@@ -27,6 +27,8 @@ class Helper
         $st = trim($st);
         $replace = array(
             " " => "-",
+            "(" => "",
+            ")" => "",
             "\"" => "",
             "'" => "",
             "." => ".",
@@ -69,6 +71,7 @@ class Helper
             "ї" => "yi", "Ї" => "yi",
             "є" => "e", "Є" => "e"
         );
+        $st = srt_replace(' ',' ', $st);
         return strtr($st, $replace);
     }
     
