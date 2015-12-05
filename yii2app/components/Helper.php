@@ -72,8 +72,9 @@ class Helper
             "ї" => "yi", "Ї" => "yi",
             "є" => "e", "Є" => "e"
         );
-        $st = preg_replace('#\s+#Uis',' ', $st);
-        return strtr($st, $replace);
+        $st = strtr($st, $replace);
+        $st = preg_replace('#-{2,}#is','-$1', $st);
+        return $st;
     }
     
     public static function formatPhone( $str )
