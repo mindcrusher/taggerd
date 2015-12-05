@@ -24,6 +24,7 @@ class Helper
      */
     public static function translit($st)
     {
+        $st = trim($st);
         $replace = array(
             " " => "-",
             "'" => "",
