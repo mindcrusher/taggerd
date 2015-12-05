@@ -62,7 +62,10 @@ foreach ($reviewsData as $review) {
     <?php
     echo Carousel::widget([
         'items' => $items,
-        'id' => 'main-page__carousel'
+        'id' => 'main-page__carousel',
+        'options' => [
+            'class' => 'slide'
+        ]
     ]);
     ?>
     <ol class="carousel-indicators main-page__carousel-carousel-indicators">
@@ -210,6 +213,9 @@ foreach ($reviewsData as $review) {
             echo Carousel::widget([
                 'items' => $reviews,
                 'id' => 'main-page__carousel-reviews',
+                'options' => [
+                    'class' => 'slide'
+                ]
             ]);
             ?>
         </div>
