@@ -7,11 +7,17 @@
     font-size: 9px;
 }
 
+
 .sub-page-header {
     background-color: #003147;
     font-size: 20px;
     border-bottom: 2px solid #FFf;
     padding: 5px 0;
+}
+
+.sub-page-header * {
+    margin: 0;
+    padding: 0;
 }
 
 body {
