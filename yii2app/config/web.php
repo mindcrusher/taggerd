@@ -26,7 +26,8 @@ $config = [
         'user' => [
             'class' => 'dektrium\user\Module',
             'controllerMap' => [
-                'security' => 'app\modules\user\controllers\SecurityController'
+                'security' => 'app\modules\user\controllers\SecurityController',
+                'recovery' => 'app\modules\user\controllers\RecoveryController'
             ],
             'enableUnconfirmedLogin' => false,
             'confirmWithin' => 60*60*24,
