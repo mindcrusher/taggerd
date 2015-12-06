@@ -22,7 +22,7 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
 <?php if($isMainPage) {?>
-    <div class="hidden-xs sub-page-header text-center text-white" style="background-color: #003147; font-size: 25px;">
+    <div class="hidden-xs sub-page-header text-center text-white">
         Группа охранных предприятий "ТАГГЕРД"
     </div>
 <? } ?>
