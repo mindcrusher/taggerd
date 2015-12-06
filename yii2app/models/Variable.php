@@ -14,7 +14,7 @@ use Yii;
  * @property integer $is_active
  * @property string $created_time
  */
-class Infoblock extends \yii\db\ActiveRecord
+class Variable extends \yii\db\ActiveRecord
 {
     const TYPE_PHONE = 'phone';
     const TYPE_MOBILE = 'mobile';
@@ -118,7 +118,7 @@ class Infoblock extends \yii\db\ActiveRecord
     {
         $_infoblocks = [];
         if(empty(Yii::$app->controller->infoblocks)) {
-            $infoblocks = Infoblock::find()->where('placeholder is not null')->all();
+            $infoblocks = Variable::find()->where('placeholder is not null')->all();
             foreach($infoblocks as $block) {
                 $_infoblocks[$block->placeholder] = $block;
             }

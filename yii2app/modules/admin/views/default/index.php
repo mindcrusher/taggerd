@@ -25,8 +25,8 @@
         Правила перенаправлений страниц
     </div>
     <div class="col-sm-4">
-        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Contacts'),['contact/index']);?></h3>
-        Управление контактными данными
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Variables'),['variable/index']);?></h3>
+        Управление переменными
     </div>
 </div>
 

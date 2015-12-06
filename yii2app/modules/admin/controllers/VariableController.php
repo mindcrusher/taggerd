@@ -3,25 +3,25 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\models\Infoblock;
+use app\models\Variable;
 use yii\data\ActiveDataProvider;
 use app\modules\admin\components\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
- * ContactController implements the CRUD actions for Infoblock model.
+ * ContactController implements the CRUD actions for Variable model.
  */
-class InfoblockController extends Controller
+class VariableController extends Controller
 {
 
     /**
-     * Lists all Infoblock models.
+     * Lists all Variable models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Infoblock::find(),
+            'query' => Variable::find(),
         ]);
 
         return $this->render('index', [
@@ -30,7 +30,7 @@ class InfoblockController extends Controller
     }
 
     /**
-     * Displays a single Infoblock model.
+     * Displays a single Variable model.
      * @param integer $id
      * @return mixed
      */
@@ -42,13 +42,13 @@ class InfoblockController extends Controller
     }
 
     /**
-     * Creates a new Infoblock model.
+     * Creates a new Variable model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Infoblock();
+        $model = new Variable();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -60,7 +60,7 @@ class InfoblockController extends Controller
     }
 
     /**
-     * Updates an existing Infoblock model.
+     * Updates an existing Variable model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -79,7 +79,7 @@ class InfoblockController extends Controller
     }
 
     /**
-     * Deletes an existing Infoblock model.
+     * Deletes an existing Variable model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -92,15 +92,15 @@ class InfoblockController extends Controller
     }
 
     /**
-     * Finds the Infoblock model based on its primary key value.
+     * Finds the Variable model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Infoblock the loaded model
+     * @return Variable the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Infoblock::findOne($id)) !== null) {
+        if (($model = Variable::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

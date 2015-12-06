@@ -46,7 +46,7 @@ AppAsset::register($this);
                             ['label' => Yii::t('app', 'Menu'), 'url' => ['menu/index']],
                             ['label' => Yii::t('app', 'Files'), 'url' => ['files/index']],
                             ['label' => Yii::t('app', 'Redirect Rules'), 'url' => ['redirect/index']],
-                            ['label' => Yii::t('app', 'Infoblock'), 'url' => ['infoblock/index']],
+                            ['label' => Yii::t('app', 'Variable'), 'url' => ['variable/index']],
                         ]],
                         ['label' => 'Калькулятор', 'items' => [
                                 ['label' => 'Базовый тариф', 'url' => ['mode/index']],

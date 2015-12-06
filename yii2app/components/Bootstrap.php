@@ -8,7 +8,7 @@
 
 namespace app\components;
 
-use app\models\Infoblock;
+use app\models\Variable;
 use Yii;
 
 trait Bootstrap
@@ -32,6 +32,6 @@ trait Bootstrap
             ];
         }
 
-        $this->infoblocks = Infoblock::preload();
+        $this->infoblocks = Variable::preload();
     }
 }

@@ -40,7 +40,7 @@ $config = [
         ],
         'view' => [
             'on afterRender' => function ($event) {
-                $event->output = \app\models\Infoblock::renderPlaceHolders($event->output);
+                $event->output = \app\models\Variable::renderPlaceHolders($event->output);
             },
         ],
         'request' => [

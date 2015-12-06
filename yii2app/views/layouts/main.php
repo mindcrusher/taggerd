@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\Menu;
 use yii\bootstrap\Nav;
 use app\assets\AppAsset;
-use \app\models\Infoblock;
+use \app\models\Variable;
 
 AppAsset::register($this);
 ?>
@@ -104,7 +104,7 @@ AppAsset::register($this);
                 <?php
                 $placeholders = ['MAIN_CONTACTS','MAIN_ADDRESS','MAIN_EMAIL'];
                 foreach($placeholders as $placeholder) {
-                    $contact = Infoblock::findByPlaceHolder($placeholder);
+                    $contact = Variable::findByPlaceHolder($placeholder);
                     if($contact) {
                 ?>
                 <div class="contact-row">
