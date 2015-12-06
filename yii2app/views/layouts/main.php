@@ -23,7 +23,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <?php if($isMainPage) {?>
     <div class="hidden-xs sub-page-header text-center text-white">
-        Группа охранных предприятий "ТАГГЕРД"
+        ${TOP_TEXT}
     </div>
 <? } ?>
 <div class="header-bg header-block">
