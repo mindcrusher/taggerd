@@ -92,7 +92,7 @@ AppAsset::register($this);
         </div>
     </div>
 </div>
-<div id="base-content">
+<div id="base-content" class="text-blue">
     <?=$content?>
 </div>
 <div class="footer">

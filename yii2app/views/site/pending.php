@@ -9,9 +9,10 @@ use yii\captcha\Captcha;
 
 $this->title = 'Заявка на услуги';
 $this->params['breadcrumbs'][] = $this->title;
+$showHeader = false; //!Yii::$app->request->isAjax && $showHeader === true;
 ?>
 <div class="site-contact <?=Yii::$app->request->isAjax ? '' : 'container'?>">
-    <?php if(!Yii::$app->request->isAjax) {?>
+    <?php if($showHeader) {?>
         <h1><?= Html::encode($this->title) ?></h1>
     <?}?>
 

@@ -1,4 +1,6 @@
 <?php
+use app\models\Pending;
+
 $this->title = !empty($page->seo_title) ? $page->seo_title : $page->title;
 $this->registerMetaTag([
     'name' => 'keywords',
@@ -16,3 +18,8 @@ $this->registerMetaTag([
     <?php } ?>
     <?=$page->getText()?>
 </div>
+<?php
+if($page->id == 19) {
+    echo $this->render('pending', ['model' => new Pending(), 'showHeader' => false]);
+}
+

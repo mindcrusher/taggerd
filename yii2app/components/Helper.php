@@ -96,9 +96,12 @@ class Helper
     {
         $text = str_replace("\"","'", $text);
         $text = str_replace("justify","left", $text);
-        $text = preg_replace("#style='((background-)?color:.*|font-family:.*;?|text-align: justify;?)'#Ui",'', $text);
+        $text = preg_replace("#style='((background-)?color:.*|font-family:.*;?|text-align: justify;?|font-size: \S+;?)'#Ui",'', $text);
         $text = preg_replace("#bgcolor='.*'#Ui",'', $text);
-        //$text = preg_replace("#<h\d>(.*)</h\d>#Uis",'<p>$1</p>', $text);
+        $text = preg_replace("#http://(www\.)?taggerd\.su/#Uis",'/', $text);
+        foreach (RedirectRules::$map as $rule) {
+            $text = str_replace($rule->from, $rule->to, $text);
+        }
         return $text;
     }
 }
