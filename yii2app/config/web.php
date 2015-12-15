@@ -21,7 +21,10 @@ $config = [
             'class' => 'yii\redactor\RedactorModule',
             'uploadDir' => $params['storageDirectory'] . '/files/storage/images/',
             'uploadUrl' => '@web/files/storage/images/',
-            'imageAllowExtensions'=>['jpg','png','gif']
+            'imageAllowExtensions'=>['jpg','png','gif'],
+            'widgetClientOptions' => [
+                'lang' => 'ru'
+            ],
         ],
         'user' => [
             'class' => 'dektrium\user\Module',

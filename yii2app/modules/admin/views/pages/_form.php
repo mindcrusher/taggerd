@@ -32,7 +32,11 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'is_active')->checkbox() ?>
         </div>
         <div id="body" role="tabpanel" class="tab-pane" >
-            <?= $form->field($model, 'text')->widget(\yii\redactor\widgets\Redactor::className()) ?>
+            <?= $form->field($model, 'text')->widget(\yii\redactor\widgets\Redactor::className(),[
+                'clientOptions' => [
+                    'plugins' => ['table'] ,
+                ],
+            ]) ?>
         </div>
         <div role="tabpanel" class="tab-pane" id="seo">
             <?= $form->field($model, 'seo_title')->textInput(['maxlength' => true]) ?>
