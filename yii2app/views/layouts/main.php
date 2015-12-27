@@ -5,7 +5,6 @@ use yii\bootstrap\Nav;
 use app\assets\AppAsset;
 use \app\models\Variable;
 
-$isMainPage = !empty(Yii::$app->request->pathInfo);
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -21,11 +20,9 @@ AppAsset::register($this);
 <body>
 
 <?php $this->beginBody() ?>
-<?php if($isMainPage) {?>
-    <div class="hidden-xs sub-page-header text-center text-white">
-        ${TOP_TEXT}
-    </div>
-<? } ?>
+<div class="hidden-xs sub-page-header text-center text-white">
+    ${TOP_TEXT}
+</div>
 <div class="header-bg header-block">
     <div class="container">
         <div class="row">
