@@ -17,7 +17,6 @@ $showHeader = false; //!Yii::$app->request->isAjax && $showHeader === true;
     <?}?>
 
     <?php if (Yii::$app->session->hasFlash('pendingFormSubmitted')): ?>
-
     <div class="alert alert-success">
         Заявка отправлена
     </div>

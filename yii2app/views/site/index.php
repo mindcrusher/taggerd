@@ -206,7 +206,7 @@ foreach ($reviewsData as $review) {
     </div>
 </div>
 <div class="main-page__block text-center">
-<?=$page->text?>
+<?=$page->getText()?>
 </div>
 <div class="main-page__reviews hidden-xs">
     <div class="container">
