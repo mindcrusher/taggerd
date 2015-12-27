@@ -11,7 +11,7 @@ $this->registerMetaTag([
     'content' => $page->seo_description
 ]);
 ?>
-<div class="<?=Yii::$app->request->isAjax ? '' : 'container'?>">
+<div class="<?=Yii::$app->request->isAjax ? '' : 'container'?> content-text">
     <h1><?=$page->title?></h1>
     <?php if(!empty($page->description)) {?>
         <blockquote><?=$page->description?></blockquote>
