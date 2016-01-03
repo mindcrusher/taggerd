@@ -92,10 +92,11 @@ foreach ($reviewsData as $review) {
             ${MAIN_PAGE_TEXT}
             <a class="collapse-control" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
                aria-controls="collapse">Подробнее</a>
+            <div id="collapse" aria-expanded="false" class="collapse">
+                <?= $page->getText() ?>
+            </div>
         </div>
-        <div id="collapse" aria-expanded="false" class="collapse">
-            <?= $page->getText() ?>
-        </div>
+
     </div>
 </div>
 <div class="main-page__principles-block">
