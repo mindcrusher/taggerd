@@ -54,7 +54,7 @@ class Variable extends \yii\db\ActiveRecord
             [['sort', 'is_active'], 'integer'],
             [['sort', 'is_active'], 'integer'],
             [['created_time'], 'safe'],
-            [['value','description'], 'string', 'max' => 63],
+            [['description'], 'string', 'max' => 512],
             [['value', 'type'], 'required'],
         ];
     }

@@ -18,7 +18,10 @@ $route = 'site/info';
 
 $this->registerCssFile("/css/main-page.css", [
     'depends' => [\app\assets\AppAsset::className()],
-], 'main-page');
+], 'main-page-css');
+$this->registerJSFile("/js/main-page.js", [
+    'depends' => [\app\assets\AppAsset::className()],
+], 'main-page-js');
 $beginYear = 1993;
 $banners = \app\models\Banners::findActive();
 $items = [];
@@ -86,14 +89,12 @@ foreach ($reviewsData as $review) {
 <div class="container main-page__container">
     <div class="row">
         <div class="col-xs-12">
-            <p>Группа компаний «ТАГГЕРД» предлагает широкий спектр охранных услуг для юридических и физических лиц в Москве и Подмосковье! Охрана ЧОП - профессионально, надежно, качественно!
-            </p>
-            <p>Группа компаний «ТАГГЕРД» оказывает профессональные охранные услуги с <?=$beginYear?> года, обеспечивает безопасность больших и малых объектов не только в Москве и Подмосковье, но и в разных регионах России. Многолетний опыт и профессиональный подход позволяют организовать эффективную  комплексную охрану частных лиц, обеспечить защиту предприятий и организаций любых масштабов и форм собственности, сохранность движимого / недвижимого имущества и ТМЦ, защиту информации и экономических интересов от любых противоправных посягательств.
-            </p>
-            <p>В нашем арсенале имеется необходимое оснащение для оказания комплекса охранных услуг: современное оборудование; средства мобильной радиосвязи; травматическое, газовое, огнестрельное оружие (пистолеты, карабины); спецсредства (наручники, резиновые дубинки, шокеры, бронежилеты и др.), служебная униформа (форменный или классический костюм); сторожевые собаки; бронированные автомобили и иной транспорт.
-            </p>
-            <p>Зазазать услуги  можно по телефону  +7 (495) 782-6-287 или в режиме ОН-ЛАЙН
-            </p>
+            ${MAIN_PAGE_TEXT}
+            <a class="collapse-control" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+               aria-controls="collapse">Подробнее</a>
+        </div>
+        <div id="collapse" aria-expanded="false" class="collapse">
+            <?= $page->getText() ?>
         </div>
     </div>
 </div>
@@ -205,9 +206,7 @@ foreach ($reviewsData as $review) {
         </div>
     </div>
 </div>
-<div class="main-page__block text-center content-text">
-<?=$page->getText()?>
-</div>
+
 <div class="main-page__reviews hidden-xs">
     <div class="container">
         <div class="main-page__block text-center">

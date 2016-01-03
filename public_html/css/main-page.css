@@ -2,6 +2,11 @@
     margin-top: 10px;
 }
 
+.collapse-control {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .main-page__digits .h1 {
     font-size: 70px;
     border-bottom: 4px solid #254a73;

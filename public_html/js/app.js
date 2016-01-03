@@ -4,8 +4,6 @@ jQuery(function(){
         $( "#menu .collapsible-area" ).toggle('fast');
     });
 
-
-
     $('.teaser-image, .teaser-title').click(function(){
         $('.main-page__principles-block .teaser-caption').css({'display':'none'});
         $(this).parent().find('.teaser-caption').css({'display':'block'});
