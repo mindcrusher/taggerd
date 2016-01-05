@@ -2,10 +2,29 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\widgets\CKEditor;
+use iutbay\yii2kcfinder\KCFinder;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Pages */
-/* @var $form yii\widgets\ActiveForm */
+$kcfOptions = array_merge(KCFinder::$kcfDefaultOptions, [
+    'uploadURL' => Yii::getAlias('@web').'/files',
+    'access' => [
+        'files' => [
+            'upload' => true,
+            'delete' => false,
+            'copy' => false,
+            'move' => false,
+            'rename' => false,
+        ],
+        'dirs' => [
+            'create' => true,
+            'delete' => false,
+            'rename' => false,
+        ],
+    ],
+]);
+
+// Set kcfinder session options
+Yii::$app->session->set('KCFINDER', $kcfOptions);
 ?>
 
 <div class="pages-form">
@@ -32,10 +51,9 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'is_active')->checkbox() ?>
         </div>
         <div id="body" role="tabpanel" class="tab-pane" >
-            <?= $form->field($model, 'text')->widget(\yii\redactor\widgets\Redactor::className(),[
-                'clientOptions' => [
-                    'plugins' => ['table'] ,
-                ],
+            <?= $form->field($model, 'text')->widget(CKEditor::className(), [
+                'options' => ['rows' => 6],
+                'preset' => 'full'
             ]) ?>
         </div>
         <div role="tabpanel" class="tab-pane" id="seo">
