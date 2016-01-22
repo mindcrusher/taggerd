@@ -358,3 +358,17 @@ a {
         font-size: 17px;
     }
 }
+
+.content-link-order-now {
+    background: url("../img/sprite.png") 0 -125px no-repeat;
+    padding-top: 7px;
+    width: 423px;
+    height: 54px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+    font-size: 25px;
+    text-decoration: none !important;
+    color: #fff !important;
+    font-family: "PT Sans Caption", "PT Sans", sans-serif;
+}
