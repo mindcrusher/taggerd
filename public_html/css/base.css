@@ -372,3 +372,11 @@ a {
     color: #fff !important;
     font-family: "PT Sans Caption", "PT Sans", sans-serif;
 }
+
+table, table td {
+    border: 1px solid #737373;
+    border-collapse: collapse;
+}
+table td {
+    padding: 15px;
+}
