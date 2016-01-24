@@ -74,7 +74,13 @@ class Pending extends \yii\db\ActiveRecord
     {
         if ($this->validate()) {
 
-            $body = print_r($this->attributes, true);
+            $body = '<h2>Заявка на услуги</h2>';
+            $labels = $this->attributeLabels();
+            foreach ($this->attributes as $k => $v) {
+                $field = $labels[$k];
+                $body.= '<b>'.$field.'</b> '.$v.' <br/>'.PHP_EOL;
+            }
+
 
             Yii::$app->mailer->compose()
                 ->setTo(Yii::$app->params['ownerEmail'])
