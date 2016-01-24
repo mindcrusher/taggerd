@@ -21,7 +21,7 @@ use Yii;
  */
 class Pending extends \yii\db\ActiveRecord
 {
-    public $verifyCode;
+    public $verify;
 
     const MAIL_SUBJECT = 'Заявка с сайта';
 
@@ -45,7 +45,7 @@ class Pending extends \yii\db\ActiveRecord
             [['phone'], 'string', 'max' => 11],
             [['email'], 'string', 'max' => 45],
             [['address', 'protection_object', 'services_list', 'requirements', 'protection_systems', 'payment_conditions'], 'string', 'max' => 255],
-        //    ['verifyCode', 'captcha'],
+            ['verify', 'captcha'],
         ];
     }
 
@@ -66,7 +66,7 @@ class Pending extends \yii\db\ActiveRecord
             'space' => 'Площадь объекта(кв.м.)',
             'protection_systems' => 'Наличие систем безопасности',
             'payment_conditions' => 'Условия по оплате',
-            'verifyCode' => 'Проверочный код',
+            'verify' => 'Проверочный код',
         ];
     }
 
@@ -82,7 +82,7 @@ class Pending extends \yii\db\ActiveRecord
             }
 
 
-            Yii::$app->mailer->compose()
+            return Yii::$app->mailer->compose()
                 ->setTo(Yii::$app->params['ownerEmail'])
                 ->setFrom([$this->email => $this->contact_name])
                 ->setSubject(self::MAIL_SUBJECT)
@@ -91,6 +91,6 @@ class Pending extends \yii\db\ActiveRecord
 
         }
 
-        return true;
+        return false;
     }
 }
