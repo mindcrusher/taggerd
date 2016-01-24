@@ -45,7 +45,7 @@ $showHeader = false; //!Yii::$app->request->isAjax && $showHeader === true;
                 <?= $form->field($model, 'space') ?>
                 <?= $form->field($model, 'protection_systems') ?>
                 <?= $form->field($model, 'payment_conditions') ?>
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                <?= $form->field($model, 'verify')->widget(Captcha::className(), [
                     'template' => '<div class="row"><div class="col-sm-3">{image}</div><div class="col-sm-3">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
