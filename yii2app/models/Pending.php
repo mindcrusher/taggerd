@@ -86,7 +86,7 @@ class Pending extends \yii\db\ActiveRecord
                 ->setTo(Yii::$app->params['ownerEmail'])
                 ->setFrom([$this->email => $this->contact_name])
                 ->setSubject(self::MAIL_SUBJECT)
-                ->setTextBody($body)
+                ->setHtmlBody($body)
                 ->send();
 
         }
