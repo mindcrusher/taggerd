@@ -77,7 +77,7 @@ class Pending extends \yii\db\ActiveRecord
             $body = '<h2>Заявка на услуги</h2>';
             $labels = $this->attributeLabels();
             foreach ($this->attributes as $k => $v) {
-                $field = $labels[$k];
+                $field = isset($labels[$k]) ? $labels[$k] : $k;
                 $body.= '<b>'.$field.'</b> '.$v.' <br/>'.PHP_EOL;
             }
 
