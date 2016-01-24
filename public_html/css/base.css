@@ -373,10 +373,10 @@ a {
     font-family: "PT Sans Caption", "PT Sans", sans-serif;
 }
 
-table, table td {
+table.bordered, table.bordered td {
     border: 1px solid #e5e5e5;
     border-collapse: collapse;
 }
-table td {
+table.bordered td {
     padding: 15px;
 }
