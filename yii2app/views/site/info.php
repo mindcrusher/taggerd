@@ -19,7 +19,7 @@ $this->registerMetaTag([
             case 3:
                 $key = 7;
                 break;
-            case 28:
+            case 27:
                 $key = 8;
                 break;
             default:
@@ -41,6 +41,19 @@ $this->registerMetaTag([
         ?>
         <div class="col-sm-" . <?=(isset($menu) ? 10 : 12)?>>
             <h1><?=$page->title?></h1>
+        <?php if($page->id == 27) {
+            $this->registerCssFile("/css/main-page.css", [
+                'depends' => [\app\assets\AppAsset::className()],
+            ], 'main-page-css');
+            $this->registerJSFile("/js/main-page.js", [
+                'depends' => [\app\assets\AppAsset::className()],
+            ], 'main-page-js');
+            ?>
+            <div class="main-page__block main-page__block-safety text-center">
+            <?=$this->render('under_cover',['route' => 'site/info']);?>
+            </div>
+        <?php
+        } ?>
             <?php if(!empty($page->description)) {?>
                 <blockquote><?=$page->description?></blockquote>
             <?php } ?>

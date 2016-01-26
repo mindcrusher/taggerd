@@ -347,6 +347,20 @@
     background-position: -322px -373px;
 }
 
+.main-page__button {
+    background: url("../img/sprite.png") 0px -126px no-repeat;
+    width: 423px;
+    line-height: 53px;
+    font-size: 22px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    color: #ffffff !important;
+}
+.main-page__button:hover {
+    text-decoration: none;
+}
+
 .main-page__reviews .main-page__block .quote {
     padding-top: 50px;
     font-style: italic;
