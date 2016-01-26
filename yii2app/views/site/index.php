@@ -31,29 +31,16 @@ foreach( $banners as &$banner) {
     $indicators[] = $banner->title;
 }
 
-$reviewsData = [
-    [
-        'image' => '/img/reviews-sprite.png',
-        'name' => 'Василий Пупкин',
-        'company' => 'Мирамакс',
-        'text' => 'Работаем с этой конторой несколько лет. Куратор нашего объекта-вменяемый руководитель. Всегда можно решить все вопросы.<br/>И по деньгам нормально . Работой их остаемся весьма и весьма довольны'
-    ],
-    [
-        'image' => '/img/reviews-sprite.png',
-        'name' => 'Негоду Лещём',
-        'company' => 'Мирамакс',
-        'text' => 'Работаем с этой конторой несколько лет. Куратор нашего объекта-вменяемый руководитель. Всегда можно решить все вопросы.<br/>И по деньгам нормально . Работой их остаемся весьма и весьма довольны'
-    ],
-];
+$reviewsData = \app\models\Reviews::find()->all();
 $reviews = [];
 foreach ($reviewsData as $review) {
-    $html = Html::beginTag('div', ['class' => 'col-sm-3']);
-    $html.= Html::img($review['image']);
-    $html.= Html::endTag('div');
-    $html.= Html::beginTag('div', ['class' => 'col-sm-9 text-left quote']);
-    $html.= '&quot;' . $review['text'] . '&quot;';
+    $html = Html::beginTag('div', ['class' => 'col-sm-12']);
+
+    $html.= Html::beginTag('div', ['class' => 'col-sm-12 text-left quote']);
+    $html.= '&quot;' . $review->text . '&quot;';
     $html.= Html::beginTag('div', ['class' => 'text-right text-blue subquote']);
-    $html.= $review['name'] . ', компания &laquo;'.$review['company'].'&raquo;';
+    $html.= $review->name . ', компания &laquo;'.$review->company.'&raquo;';
+    $html.= Html::endTag('div');
     $html.= Html::endTag('div');
     $html.= Html::endTag('div');
 
@@ -91,7 +78,8 @@ foreach ($reviewsData as $review) {
         <div class="col-xs-12">
             ${MAIN_PAGE_TEXT}
             <a class="collapse-control" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
-               aria-controls="collapse">Подробнее</a>
+               aria-controls="collapse"><b>Подробнее</b></a>
+            <p>&nbsp;</p>
             <div id="collapse" aria-expanded="false" class="collapse">
                 <?= $page->getText() ?>
             </div>
@@ -103,22 +91,15 @@ foreach ($reviewsData as $review) {
     <div class="container">
         <div class="main-page__block text-center">
             <?php
-            $principles = [
-                'confident' => ['title' => 'Полная конфиденциальность'],
-                'complex' => ['title' => 'Комплексная защита'],
-                'license' => ['title' => 'Лицензированные охранники'],
-                'individual' => ['title' => 'Индивидуальный подход<br/> к каждому объекту'],
-                'legal' => ['title' => 'Работаем в соответствии<br/> с законодатльством РФ'],
-                'flexible' => ['title' => 'Гибкий подход к любому бюджету'],
-            ];
+            $principles = \app\models\Principles::find()->all();
             ?>
             <span class="h3 text-red">Наши принципы</span>
             <div class="row">
-                <?php foreach($principles as $chapter => $principe) {?>
+                <?php foreach($principles as $principe) {?>
                 <div class="col-md-4 col-sm-6 col-xs-12 teaser">
-                    <div class="teaser-image teaser-image-<?=$chapter?>"></div>
-                    <div class="teaser-title"><?=$principe['title']?></div>
-                    <div class="teaser-caption"><?=$principe['title']?></div>
+                    <div class="teaser-image teaser-image-<?=$principe->key?>"></div>
+                    <div class="teaser-title"><?=$principe->title?></div>
+                    <div class="teaser-caption"><?=$principe->title?></div>
                 </div>
                 <?php } ?>
             </div>

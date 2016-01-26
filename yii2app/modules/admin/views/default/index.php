@@ -28,6 +28,14 @@
         <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Variables'),['variable/index']);?></h3>
         Управление переменными
     </div>
+    <div class="col-sm-4">
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Reviews'),['files/index']);?></h3>
+        Написание отзывов
+    </div>
+    <div class="col-sm-4">
+        <h3><?= \yii\bootstrap\Html::a(Yii::t('app', 'Principles'),['files/index']);?></h3>
+        Принципы
+    </div>
 </div>
 
 <h1>Настройки калькулятора</h1>
