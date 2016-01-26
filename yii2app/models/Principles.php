@@ -40,9 +40,9 @@ class Principles extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'key' => Yii::t('app', 'Key'),
-            'title' => Yii::t('app', 'Title'),
-            'text' => Yii::t('app', 'Text'),
+            'key' => 'Ключ',
+            'title' => 'Заголовок',
+            'text' => 'Текст',
         ];
     }
 }

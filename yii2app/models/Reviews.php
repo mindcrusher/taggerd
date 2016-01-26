@@ -42,9 +42,9 @@ class Reviews extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'company' => Yii::t('app', 'Company'),
-            'text' => Yii::t('app', 'Text'),
+            'name' => 'Имя',
+            'company' => 'Компания',
+            'text' => 'Текст',
         ];
     }
 }
