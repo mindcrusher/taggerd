@@ -19,7 +19,7 @@ $config = [
         ],
         'redactor' => [
             'class' => 'yii\redactor\RedactorModule',
-            'uploadDir' => $params['storageDirectory'] . '/files/storage/images/',
+            'uploadDir' => '@webroot/files/storage/images/',
             'uploadUrl' => '@web/files/storage/images/',
             'imageAllowExtensions'=>['jpg','png','gif'],
             'widgetClientOptions' => [
@@ -120,6 +120,6 @@ if (YII_ENV_DEV) {
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii']['class'] = 'yii\gii\Module';
-    $config['modules']['gii']['allowedIPs'] = ['127.0.0.1', '::1', '192.168.0.80'];
+    //$config['modules']['gii']['allowedIPs'] = ['*'];
 }
 return $config;
