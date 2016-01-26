@@ -99,7 +99,7 @@ foreach ($reviewsData as $review) {
                 <div class="col-md-4 col-sm-6 col-xs-12 teaser">
                     <div class="teaser-image teaser-image-<?=$principe->key?>"></div>
                     <div class="teaser-title"><?=$principe->title?></div>
-                    <div class="teaser-caption"><?=$principe->title?></div>
+                    <div class="teaser-caption"><?= $principe->text ?></div>
                 </div>
                 <?php } ?>
             </div>
