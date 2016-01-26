@@ -37,7 +37,7 @@ foreach ($reviewsData as $review) {
     $html = Html::beginTag('div', ['class' => 'col-sm-12']);
 
     $html.= Html::beginTag('div', ['class' => 'col-sm-12 text-left quote']);
-    $html .= strip_tags($review->text, '<p></p>');
+    $html .= strip_tags($review->text, '<img>');
     $html.= Html::beginTag('div', ['class' => 'text-right text-blue subquote']);
     $html.= $review->name . ', компания &laquo;'.$review->company.'&raquo;';
     $html.= Html::endTag('div');
