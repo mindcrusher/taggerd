@@ -26,10 +26,6 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
-            'captcha-pending' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
         ];
     }
 
@@ -89,7 +85,6 @@ class SiteController extends Controller
         $model = new Pending();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('pendingFormSubmitted', true);
-
             return $this->refresh();
         } else {
             return $this->render('pending', [

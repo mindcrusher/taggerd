@@ -45,7 +45,7 @@ class Pending extends \yii\db\ActiveRecord
             [['phone'], 'string', 'max' => 11],
             [['email'], 'string', 'max' => 45],
             [['address', 'protection_object', 'services_list', 'requirements', 'protection_systems', 'payment_conditions'], 'string', 'max' => 255],
-            ['verify', 'captcha', 'captchaAction' => '/site/captcha-pending'],
+            ['verify', 'captcha'],
         ];
     }
 
@@ -72,8 +72,6 @@ class Pending extends \yii\db\ActiveRecord
 
     public function beforeSave( $insert )
     {
-        if ($this->validate()) {
-
             $body = '<h2>Заявка на услуги</h2>';
             $labels = $this->attributeLabels();
             foreach ($this->attributes as $k => $v) {
@@ -88,8 +86,6 @@ class Pending extends \yii\db\ActiveRecord
                 ->setSubject(self::MAIL_SUBJECT)
                 ->setHtmlBody($body)
                 ->send();
-
-        }
 
         return false;
     }

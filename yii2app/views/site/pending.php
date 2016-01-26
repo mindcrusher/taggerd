@@ -47,7 +47,6 @@ $showHeader = false; //!Yii::$app->request->isAjax && $showHeader === true;
                 <?= $form->field($model, 'payment_conditions') ?>
                 <?= $form->field($model, 'verify')->widget(Captcha::className(), [
                     'id' => 'pending',
-                    'captchaAction' => 'site/captcha-pending',
                     'template' => '<div class="row"><div class="col-sm-3">{image}</div><div class="col-sm-3">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
