@@ -72,7 +72,6 @@ class RedirectRules extends \yii\db\ActiveRecord
 
     public static function preload()
     {
-        self::normalize();
         $suffix = Yii::$app->urlManager->suffix;
         if(empty(self::$map)) {
             $to_list = [];
@@ -98,5 +97,11 @@ class RedirectRules extends \yii\db\ActiveRecord
             $rule->to = $rule->destination;
             $rule->save(false);
         }
+    }
+
+    public function afterSave()
+    {
+        self::normalize();
+        self::deleteAll('`to` = `from`');
     }
 }
