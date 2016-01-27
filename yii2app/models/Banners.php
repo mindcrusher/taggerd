@@ -58,7 +58,7 @@ class Banners extends \yii\db\ActiveRecord
     {
         return self::find()
                 ->where('is_active = 1')
-                ->andWhere('NOW() between begin_time and end_time')
+            //->andWhere('NOW() between begin_time and end_time')
                 ->all();
     }
 
