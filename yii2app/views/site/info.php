@@ -39,7 +39,7 @@ $this->registerMetaTag([
         <?php
         }
         ?>
-        <div class="col-sm-" . <?=(isset($menu) ? 9 : 12)?>>
+        <div class="col-sm-<?= (isset($menu) ? 9 : 12) ?>">
             <h1><?=$page->title?></h1>
             <?php if(!empty($page->description)) {?>
                 <blockquote><?=$page->description?></blockquote>
