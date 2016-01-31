@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\Helper;
 use Yii;
 use yii\bootstrap\Html;
 
@@ -69,9 +70,10 @@ class Banners extends \yii\db\ActiveRecord
         $content = '';
         $caption = $this->title;
         $html = $this->html;
+        $url = Helper::clearText($this->url);
 
         if(!empty($this->photo_id)) {
-            $content = html::a(Html::img($this->file->getUrl()), empty($this->url) ? '#' : $this->url);
+            $content = html::a(Html::img($this->file->getUrl()), empty($url) ? '#' : $url);
         }
 
         if($this->url) {
