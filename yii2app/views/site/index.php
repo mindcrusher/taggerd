@@ -1,5 +1,5 @@
 <?php
-use yii\bootstrap\Carousel;
+use app\widgets\Carousel;
 use \yii\helpers\Html;
 use \yii\helpers\Url;
 
@@ -28,7 +28,6 @@ $items = [];
 $indicators = [];
 foreach( $banners as &$banner) {
     $items[] = $banner->getContent();
-    $indicators[] = $banner->title;
 }
 
 $reviewsData = \app\models\Reviews::find()->all();
@@ -58,20 +57,6 @@ foreach ($reviewsData as $review) {
         ]
     ]);
     ?>
-    <ol class="carousel-indicators main-page__carousel-carousel-indicators">
-        <?php
-        foreach( $indicators as $i => &$indicator) {
-            echo \yii\bootstrap\Html::tag(
-                'li',
-                $indicator,
-                [
-                    'class' => ($i === 0 ? "active" : ""),
-                    'onclick' => "$('#main-page__carousel').carousel($i);$('ol li').removeClass('active');$(this).addClass('active');"
-                ]
-            );
-        }
-        ?>
-    </ol>
 </div>
 <div class="container main-page__container">
     <div class="row">

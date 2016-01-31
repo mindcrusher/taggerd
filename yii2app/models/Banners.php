@@ -83,7 +83,7 @@ class Banners extends \yii\db\ActiveRecord
 
         return [
             'content' => $content,
-        //    'caption' => $caption,
+            'caption' => $caption,
         ];
     }
 
