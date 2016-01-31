@@ -69,7 +69,7 @@ class Banners extends \yii\db\ActiveRecord
     {
         $content = '';
         $caption = $this->title;
-        $html = $this->html;
+        $html = Helper::clearText($this->html);
         $url = Helper::clearText($this->url);
 
         if(!empty($this->photo_id)) {
@@ -77,7 +77,7 @@ class Banners extends \yii\db\ActiveRecord
         }
 
         if($this->url) {
-            $html.= Html::a('', $this->url, ['class' => 'carousel-read-more']);
+            $html .= Html::a('', $url, ['class' => 'carousel-read-more']);
         }
 
         $content.= Html::tag('div', $html, ['class' => 'html']);
