@@ -83,11 +83,11 @@ class BannersController extends Controller
             $model->load(Yii::$app->request->post());
             $file->file = UploadedFile::getInstance($file, 'file');
 
-            if(empty($model->file->file)) {
+            if (empty($file->file)) {
                 $r = $model->save();
             } else {
                 $model->photo_id = $file->upload();
-                $r = $model->upload();
+                $r = $model->save();
             }
             if ($r) {
                 return $this->redirect(['view', 'id' => $model->id]);
