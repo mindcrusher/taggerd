@@ -66,12 +66,12 @@ class Banners extends \yii\db\ActiveRecord
 
     public function getContent()
     {
-        $content = null;
+        $content = '';
         $caption = $this->title;
         $html = $this->html;
 
         if(!empty($this->photo_id)) {
-            $content = html::a(Html::img($this->file->getUrl()), $this->url);
+            $content = html::a(Html::img($this->file->getUrl()), empty($this->url) ? '#' : $this->url);
         }
 
         if($this->url) {
