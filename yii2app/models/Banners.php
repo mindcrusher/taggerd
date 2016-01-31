@@ -61,7 +61,6 @@ class Banners extends \yii\db\ActiveRecord
                 ->where('is_active = 1')
             //->andWhere('NOW() between begin_time and end_time')
             ->orderBy('rand()')
-            ->limit(3)
             ->all();
     }
 
