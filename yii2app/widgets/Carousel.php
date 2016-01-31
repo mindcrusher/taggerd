@@ -23,7 +23,7 @@ class Carousel extends \yii\bootstrap\Carousel
         }
         $indicators = [];
         for ($i = 0, $count = count($this->items); $i < $count; $i++) {
-            $title = isset($this->items[$i]['caption']) ? $this->items[$i]['caption'] : '';
+            $title = isset($this->items[$i]['title']) ? $this->items[$i]['title'] : '';
             $options = ['data-target' => '#' . $this->options['id'], 'data-slide-to' => $i];
             if ($i === 0) {
                 Html::addCssClass($options, 'active');
