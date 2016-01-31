@@ -77,7 +77,8 @@ foreach ($reviewsData as $review) {
     <div class="row">
         <div class="col-xs-12">
             ${MAIN_PAGE_TEXT}
-            <a class="collapse-control" data-toggle="collapse" data-target="#collapse" aria-expanded="false"
+            <a id="collapse-control" class="collapse-control" data-toggle="collapse" data-target="#collapse"
+               aria-expanded="false"
                aria-controls="collapse"><b>Подробнее</b></a>
             <p>&nbsp;</p>
             <div id="collapse" aria-expanded="false" class="collapse">
