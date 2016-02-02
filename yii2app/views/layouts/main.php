@@ -151,16 +151,26 @@ AppAsset::register($this);
                     Поделитесь с друзьями
                 </div>
                 <div class="col-xs-6">
-                    <script type="text/javascript">(function() {
-                            if (window.pluso)if (typeof window.pluso.start == "function") return;
-                            if (window.ifpluso==undefined) { window.ifpluso = 1;
-                                var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                                s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                                s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-                                var h=d[g]('body')[0];
+                    <script type="text/javascript">(function (w, doc) {
+                            if (!w.__utlWdgt) {
+                                w.__utlWdgt = true;
+                                var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
+                                s.type = 'text/javascript';
+                                s.charset = 'UTF-8';
+                                s.async = true;
+                                s.src = ('https:' == w.location.protocol ? 'https' : 'http') + '://w.uptolike.com/widgets/v1/uptolike.js';
+                                var h = d[g]('body')[0];
                                 h.appendChild(s);
-                            }})();</script>
-                    <div class="pluso" data-background="transparent" data-options="big,round,line,horizontal,nocounter,theme=04" data-services="facebook,twitter,vkontakte,odnoklassniki,google"></div>
+                            }
+                        })(window, document);</script>
+                    <div data-share-size="40" data-like-text-enable="false" data-background-alpha="0.0"
+                         data-pid="1306863" data-mode="share" data-background-color="#ffffff" data-share-shape="round"
+                         data-share-counter-size="12" data-icon-color="#ffffff" data-text-color="#000000"
+                         data-buttons-color="#FFFFFF" data-counter-background-color="#ffffff"
+                         data-share-counter-type="disable" data-orientation="horizontal" data-following-enable="false"
+                         data-sn-ids="fb.vk.tw.ok.gp." data-selection-enable="true" data-exclude-show-more="false"
+                         data-share-style="1" data-counter-background-alpha="1.0" data-top-button="false"
+                         class="uptolike-buttons"></div>
                 </div>
             </div>
         </div>
