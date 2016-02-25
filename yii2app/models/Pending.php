@@ -83,6 +83,7 @@ class Pending extends \yii\db\ActiveRecord
             return Yii::$app->mailer->compose()
                 ->setTo(Yii::$app->params['ownerEmail'])
                 ->setFrom([$this->email => $this->contact_name])
+                ->setReplyTo([$this->email => $this->name])
                 ->setSubject(self::MAIL_SUBJECT)
                 ->setHtmlBody($body)
                 ->send();
